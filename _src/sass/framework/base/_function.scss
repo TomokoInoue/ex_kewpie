@@ -2,7 +2,7 @@
 $breakpoint : 768px;
 
 // ページ基本幅（PC）
-$contentBaseWidgth_PC : 960px;
+$contentBaseWidgth_PC : 1000px;
 
 // ページ基本幅（SP）
 $contentBaseWidgth_SP : 560;
@@ -12,13 +12,13 @@ $spBaseWidth : percentage($contentBaseWidgth_SP/640);
 $imgPath : "../images/";
 
 // 文字まわり
-$base-font-size : 12px;
-$base-font-color : #aaa;
+$base-font-size : 18px;
+$base-font-color : #333;
 $base-line-height : 1.8em;
 $linkColor : #00a0e9;
 
 // 背景色
-$baseBkgColor : #f5f5f5;
+$baseBkgColor : #fff;
 
 
 // レスポンシブ

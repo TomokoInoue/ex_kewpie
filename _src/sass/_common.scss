@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/*-----------------------------
+* 基本ブロック（継承して利用）
+-----------------------------*/
+// 両方設定
+%ext_base_block {
+	position: relative;
+	@include desktop {
+		width: $contentBaseWidgth_PC;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	@include smartphone {
+		width: $spBaseWidth;
+		margin: 0 auto;
+	}
+}
+
+// PCだけ設定
+%ext_base_block_pc {
+	@include desktop {
+		position: relative;
+		width: $contentBaseWidgth_PC;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// スマホだけ設定
+%ext_base_block_sp {
+	@include smartphone {
+		position: relative;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
+
+
+/** ---------------------
+ * 要素ごとのCSS
+ * ------------------- */
+// PCのみ表示
+.pc_only {
+	@include smartphone {
+		display: none;
+	}
+}
+
+// SPのみ表示
+.sp_only {
+	display: none;
+	@include smartphone {
+		display: inherit;
+	}
+}
+
+// ボタンのロールオーバー
+.btnImg_hover {
+	@include desktop {
+		transition: all 0.3s $ease-in-out;
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+}
+
+// ぶら下がりインデント
+.hanging_indent > li {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+// 文字を小さくする ※Chromeで10px以下にならないため、transformで制御する
+.subsmall {
+	display: inline-block;
+	text-indent: 0;
+	-webkit-transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	transform: scale(0.8);
+	-webkit-transform-origin: 25% 70%;
+	-ms-transform-origin: 25% 70%;
+	transform-origin: 25% 70%;
+}
+
+
+/** ---------------------
+ * 全体共通CSS
+ * ------------------- */
+body {
+	background-color: $baseBkgColor;
+	color: $base-font-color;
+	font-family: "游ゴシック", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	img {
+		vertical-align: bottom;
+		@include smartphone {
+			max-width: 100%;
+	        height: auto;
+		}
+	}
+	@include desktop {
+		font-size: $base-font-size;
+		min-width: $contentBaseWidgth_PC;
+	}
+	@include smartphone {
+		min-width: inherit;
+		-webkit-text-size-adjust: 100%;
+	}
+}
+
+// aタグのリンク文字
+a,
+a:link, // 未訪問のリンク
+a:visited,
+a:hover,
+a:active { // クリックしてから離されるまでの状態
+	color: $linkColor;
+}
+
+
+/** ---------------------
+ * ヘッダーCSS
+ * ------------------- */
+header {
+	background-color: #fff;
+	.header_contentes {
+		@extend %ext_base_block;
+		@include desktop {
+			margin: 0 auto;
+			padding: 20px 0;
+		}
+		@include smartphone {
+			padding: percentage(30 / 640) 0;
+			background-color: #fff;
+		}
+	}
+}
+
+
+/** ---------------------
+ * コンテンツエリアCSS
+ * ------------------- */
+.mv_area {
+	.mv_contents {
+		@extend %ext_base_block;
+		@include desktop {
+			height: 1300px; // 仮
+			margin: 0 auto;
+		}
+		@include smartphone {
+			height: 2000px;
+			padding-top: 20px;
+		}
+	}
+}
+
+
+/** ---------------------
+ * フッターCSS
+ * ------------------- */
+footer {
+	background-color: #fff;
+	.footer_contens {
+		@extend %ext_base_block;
+		@include desktop {
+			margin: 0 auto;
+			padding: 20px 0;
+		}
+		@include smartphone {
+			padding: 20px 0;
+		}
+		.copyright {
+			text-align: center;
+			@include desktop {
+				font-family: "Quicksand", "游ゴシック", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+				font-size: 10px;
+				line-height: 1em;
+			}
+			@include smartphone {
+				width: 100%;
+				font-size: 8px;
+			}
+		}
+	}
+}

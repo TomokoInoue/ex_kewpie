@@ -16,8 +16,11 @@ $base-font-size : 18px;
 $base-font-color : #333;
 $base-line-height : 1.8em;
 $linkColor : #00a0e9;
-$font-red : #e61728;
-$font-green : #00913a;
+
+//カラー
+$red : #e61728;
+$green : #00913a;
+$orange : #f39800;
 
 // 背景色
 $baseBkgColor : #fff;
@@ -51,6 +54,7 @@ $baseBkgColor : #fff;
 	width: $w;
 	height: $h;
 	background: url("#{$imgPath}#{$url}") no-repeat 50% 50%;
+	background-size: contain;
 	text-indent: -9999px;
 }
 // 共通背景画像（SP）

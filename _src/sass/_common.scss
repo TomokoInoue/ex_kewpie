@@ -401,18 +401,18 @@ header {
 			.howto_four {
 				@include desktop {
 					width: 490px;
-					border: 2px solid $font-red;
+					border: 2px solid $red;
 					box-sizing: border-box;
 				}
 				.howto_four_ttl {
-					background-color: $font-red;
+					background-color: $red;
 				}
 				.howto_four_desc {
-					color: $font-red;
+					color: $red;
 					@include desktop {
 						width: 456px;
 						padding: 8px 15px 5px;
-						border-bottom: 2px solid $font-red;
+						border-bottom: 2px solid $red;
 						font-size: 14px;
 						line-height: 1.57em;
 					}
@@ -440,7 +440,7 @@ header {
 						}
 					}
 					.pot_notice {
-						color: $font-red;
+						color: $red;
 						@include desktop {
 							padding-top: 3px;
 							font-size: 12px;
@@ -470,12 +470,12 @@ header {
 			.howto_fast {
 				@include desktop {
 					width: 490px;
-					border: 2px solid $font-green;
+					border: 2px solid $green;
 					box-sizing: border-box;
 				}
 				.howto_fast_ttl {
 					@include desktop {
-						background-color: $font-green;
+						background-color: $green;
 					}
 				}
 				.howto_fast_inner {
@@ -492,7 +492,7 @@ header {
 						font-size: 16px;
 					}
 					.red_txt {
-						color: $font-red;
+						color: $red;
 						@include desktop {
 							font-size: 20px;
 						}
@@ -664,10 +664,265 @@ header {
 						}
 					}
 					.feature_notes {
-						color: $font-red;
+						color: $red;
 						@include desktop {
 							font-size: 14px;
 							line-height: 1.57em;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/** ---------------
+ * おすすめレシピ
+ * -------------- */
+.recipe_area {
+	.recipe_contents {
+		@extend %ext_base_block;
+		.recipe_ttl {
+			margin: 153px auto 30px;
+			@include desktop {
+				@include backgroundFig(371px, 111px, "recipe_ttl.png");
+			}
+		}
+		.recipe_lead {
+			text-align: center;
+			@include desktop {
+				margin-bottom: 44px;
+			}
+		}
+		.recipe_pkg {
+			display: flex;
+			justify-content: space-between;
+			margin: 0 auto;
+			@include desktop {
+				width: 578px;
+				margin-bottom: 20px;
+			}
+			li {
+				a {
+					display: block;
+				}
+				.recipe_pkg_img,
+				.recipe_pkg_ttl,
+				.recipe_pkg_arrow {
+					text-align: center;
+				}
+				.recipe_pkg_ttl {
+					margin: 14px 0 15px;
+				}
+			}
+		}
+		.recipe_taste_list {
+			& > li {
+				@include desktop {
+					margin-bottom: 20px;
+				}
+			}
+			.recipe_list {
+				position: relative;
+				display: flex;
+				justify-content: space-between;
+				@include desktop {
+					padding-bottom: 20px;
+				}
+				&.recipe_list_cream {
+					@include desktop {
+						border-bottom: 4px solid $orange;
+					}
+				}
+				&.recipe_list_dashi {
+					@include desktop {
+						border-bottom: 4px solid $green;
+					}
+				}
+				li {
+					@include clearfix;
+					&:after {
+						@include desktop {
+							position: absolute;
+							top: 0;
+							left: 462px;
+							width: 1px;
+							height: 405px;
+							margin-top: 40px;
+							background: url(#{$imgPath}recipe_list_line.gif) repeat-y center top;
+						}
+					}
+					&:nth-child(2):after {
+						@include desktop {
+							left: 737px;
+						}
+					}
+					// メインレシピ共通のCSS
+					.recipe_main_img {
+						@include desktop {
+							margin-bottom: 10px;
+						}
+					}
+					.recipe_wrap {
+						float: left;
+						.recipe_main_pkg {
+							@include desktop {
+								display: none;
+							}
+						}
+						.recipe_main_ttl {
+							@include desktop {
+								margin-bottom: 7px;
+								font-size: 18px;
+								line-height: 1.44em;
+							}
+						}
+						.recipe_main_time {
+							@include desktop {
+								font-size: 16px;
+							}
+						}
+					}
+					.recipe_main_btn {
+						@include desktop {
+							position: relative;
+							float: right;
+							width: 200px;
+							height: 70px;
+							margin-top: 4px;
+							overflow: hidden;
+						}
+						& > a {
+							@include desktop {
+								background-position: 0 0;
+								&:hover {
+									background-position: 0 -70px;
+								}
+							}
+						}
+					}
+					@include desktop {
+						.recipe_main_btn_cream {
+							& > a {
+								@include backgroundFig(200px, 140px, "recipe_main_btn_cream.png");
+							}
+						}
+						.recipe_main_btn_dashi {
+							& > a {
+								@include backgroundFig(200px, 140px, "recipe_main_btn_dashi.png");
+							}
+						}
+						.recipe_main_btn_tomato {
+							& > a {
+								@include backgroundFig(200px, 140px, "recipe_main_btn_tomato.png");
+							}
+						}
+					}
+					// サブレシピ共通のCSS
+					.recipe_sub_img {
+						@include desktop {
+							margin: 40px 0 36px;
+						}
+					}
+					.recipe_sub_ttl {
+						text-align: center;
+						@include desktop {
+							margin-bottom: 29px;
+							font-size: 18px;
+							line-height: 1.44em;
+						}
+					}
+					.recipe_sub_btn {
+						margin: 0 auto;
+						@include desktop {
+							position: relative;
+							width: 240px;
+							height: 70px;
+							overflow: hidden;
+						}
+						& > a {
+							@include desktop {
+								background-position: 0 0;
+								&:hover {
+									background-position: 0 -70px;
+								}
+							}
+						}
+					}
+					@include desktop {
+						.recipe_sub_btn_cream {
+							& > a {
+								@include backgroundFig(240px, 140px, "recipe_sub_btn_cream.png");
+							}
+						}
+						.recipe_sub_btn_dashi {
+							& > a {
+								@include backgroundFig(240px, 140px, "recipe_sub_btn_dashi.png");
+							}
+						}
+						.recipe_sub_btn_tomato {
+							& > a {
+								@include backgroundFig(240px, 140px, "recipe_sub_btn_tomato.png");
+							}
+						}
+					}
+					// なめらかクリーム味のレシピ
+					.recipe_main_img_cream {
+						@include desktop {
+							@include backgroundFig(450px, 364px, "recipe_cream_broccoli.png");
+						}
+					}
+					.recipe_cream_walnut {
+						@include desktop {
+							@include backgroundFig(250px, 198px, "recipe_cream_walnut.png");
+						}
+					}
+					.recipe_cream_soup {
+						@include desktop {
+							@include backgroundFig(250px, 198px, "recipe_cream_soup.png");
+						}
+					}
+					// だし醤油味のレシピ
+					.recipe_main_img_dashi {
+						@include desktop {
+							@include backgroundFig(450px, 364px, "recipe_dashi_spinach.png");
+						}
+					}
+					.recipe_dashi_radish {
+						@include desktop {
+							margin-bottom: 45px;
+							@include backgroundFig(250px, 198px, "recipe_dashi_radish.png");
+						}
+					}
+					.recipe_dashi_soup {
+						@include desktop {
+							margin-bottom: 45px;
+							@include backgroundFig(250px, 198px, "recipe_dashi_soup.png");
+						}
+					}
+					.recipe_sub_ttl_dashi,
+					.recipe_sub_ttl_tomato {
+						@include desktop {
+							margin-bottom: 45px;
+						}
+					}
+					// コクのトマト味のレシピ
+					.recipe_main_img_tomato {
+						@include desktop {
+							@include backgroundFig(450px, 364px, "recipe_tomato_bacon.png");
+						}
+					}
+					.recipe_tomato_pork {
+						@include desktop {
+							margin-bottom: 45px;
+							@include backgroundFig(250px, 198px, "recipe_tomato_pork.png");
+						}
+					}
+					.recipe_tomato_soup {
+						@include desktop {
+							margin-bottom: 45px;
+							@include backgroundFig(250px, 198px, "recipe_tomato_soup.png");
 						}
 					}
 				}

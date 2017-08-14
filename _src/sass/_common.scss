@@ -72,7 +72,6 @@
 
 // 文字を小さくする ※Chromeで10px以下にならないため、transformで制御する
 .subsmall {
-	display: inline-block;
 	text-indent: 0;
 	-webkit-transform: scale(0.8);
 	-ms-transform: scale(0.8);
@@ -681,6 +680,9 @@ header {
  * おすすめレシピ
  * -------------- */
 .recipe_area {
+	@include desktop {
+		margin-bottom: 100px;
+	}
 	.recipe_contents {
 		@extend %ext_base_block;
 		.recipe_ttl {
@@ -738,6 +740,11 @@ header {
 				&.recipe_list_dashi {
 					@include desktop {
 						border-bottom: 4px solid $green;
+					}
+				}
+				&.recipe_list_tomato {
+					@include desktop {
+						border-bottom: 4px solid $red;
 					}
 				}
 				li {
@@ -843,6 +850,7 @@ header {
 						}
 						& > a {
 							@include desktop {
+								position: absolute;
 								background-position: 0 0;
 								&:hover {
 									background-position: 0 -70px;
@@ -933,6 +941,99 @@ header {
 
 
 /** -----------
+ * 商品紹介
+ * ----------- */
+.intro_area {
+	@include desktop {
+		margin-bottom: 145px;
+	}
+	.intro_contents {
+		@extend %ext_base_block;
+		.intro_ttl {
+			text-align: center;
+			@include desktop {
+				margin-bottom: 30px;
+			}
+		}
+		.intro_lead {
+			text-align: center;
+			@include desktop {
+				margin-bottom: 45px;
+			}
+		}
+		.intro_product {
+			text-align: center;
+			@include desktop {
+				display: flex;
+				justify-content: space-between;
+			}
+			li {
+				.intro_product_name {
+					@include desktop {
+						margin: 24px 0;
+						font-weight: bold;
+					}
+				}
+				.intro_product_desc {
+					@include desktop {
+						margin-bottom: 18px;
+						font-size: 16px;
+						line-height: 1.5em;
+					}
+				}
+				.intro_product_btn {
+					@include desktop {
+						position: relative;
+						width: 264px;
+						height: 60px;
+						overflow: hidden;
+					}
+					& > a {
+						@include desktop {
+							position: absolute;
+							background-position: 0 0;
+							&:hover {
+								background-position: 0 -60px;
+							}
+						}
+					}
+				}
+				@include desktop {
+					.intro_product_btn_cream {
+						& > a {
+							@include backgroundFig(264px, 120px, "intro_product_btn_cream.png");
+						}
+					}
+					.intro_product_btn_dashi {
+						& > a {
+							@include backgroundFig(264px, 120px, "intro_product_btn_dashi.png");
+						}
+					}
+					.intro_product_btn_tomato {
+						& > a {
+							@include backgroundFig(264px, 120px, "intro_product_btn_tomato.png");
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/** -------------------
+ * トップページボタン
+ * ------------------ */
+.page_top_btn {
+	position: fixed;
+	@include desktop {
+		right: 48px;
+		bottom: 60px;
+	}
+}
+
+
+/** -----------
  * フッター
  * ----------- */
 footer {
@@ -941,21 +1042,28 @@ footer {
 		@extend %ext_base_block;
 		@include desktop {
 			margin: 0 auto;
-			padding: 20px 0;
 		}
 		@include smartphone {
 			padding: 20px 0;
 		}
-		.copyright {
+		.footer_logo {
+			text-align: center;
+		}
+		.footer_copyright {
+			color: #7e7e7e;
 			text-align: center;
 			@include desktop {
-				font-family: "Quicksand", "游ゴシック", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
-				font-size: 10px;
-				line-height: 1em;
+				margin: 16px 0 34px;
+				padding-left: 124px;
 			}
 			@include smartphone {
 				width: 100%;
 				font-size: 8px;
+			}
+		}
+		.subsmall {
+			@include desktop {
+				font-size: 13px;
 			}
 		}
 	}

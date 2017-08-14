@@ -247,316 +247,324 @@ header {
 /** ------------
  * 基本の作り方
  * ------------ */
-.howto_contents {
-	@extend %ext_base_block;
-	@include desktop {
-		margin: 232px auto 213px;
-	}
-	.howto_ttl {
-		text-align: center;
+.howto_area {
+	.howto_contents {
+		@extend %ext_base_block;
 		@include desktop {
-			margin-bottom: 26px;
+			margin: 232px auto 213px;
 		}
-	}
-	.howto_lead {
-		text-align: center;
-		@include desktop {
-			margin-bottom: 40px;
-			line-height: 1.55em;
-		}
-	}
-	.howto_sub_ttl {
-		@include desktop {
-			margin-bottom: 24px;
-			@include backgroundFig(1000px, 45px, "howto_sub_ttl.png");
-		}
-	}
-	.howto_steps {
-		display: flex;
-		justify-content: space-between;
-		@include desktop {
-			margin-bottom: 8px;
-		}
-		li {
+		.howto_ttl {
+			text-align: center;
 			@include desktop {
-				width: 235px;
-				height: 518px;
-				background: url(#{$imgPath}howto_steps_bg.png) no-repeat center top;
+				margin-bottom: 26px;
 			}
-			.howto_num1 {
-				@include desktop {
-					@include backgroundFig(235px, 30px, "howto_num1.png");
-				}
+		}
+		.howto_lead {
+			text-align: center;
+			@include desktop {
+				margin-bottom: 40px;
+				line-height: 1.55em;
 			}
-			.howto_num2 {
-				@include desktop {
-					@include backgroundFig(235px, 30px, "howto_num2.png");
-				}
+		}
+		.howto_sub_ttl {
+			@include desktop {
+				margin-bottom: 24px;
+				@include backgroundFig(1000px, 45px, "howto_sub_ttl.png");
 			}
-			.howto_num3 {
-				@include desktop {
-					@include backgroundFig(235px, 30px, "howto_num3.png");
-				}
+		}
+		.howto_steps {
+			display: flex;
+			justify-content: space-between;
+			@include desktop {
+				margin-bottom: 8px;
 			}
-			.howto_num4 {
+			li {
 				@include desktop {
-					@include backgroundFig(235px, 30px, "howto_num4.png");
+					width: 235px;
+					height: 518px;
+					background: url(#{$imgPath}howto_steps_bg.png) no-repeat center top;
 				}
-			}
-			.howto_inner {
-				@include desktop {
-					position: relative;
-					width: 198px;
-					margin: 0 auto;
-				}
-				.howto_photo {
-					text-align: center;
+				.howto_num1 {
 					@include desktop {
-						margin: 24px 0 36px;
+						@include backgroundFig(235px, 30px, "howto_num1.png");
 					}
 				}
-				.howto_desc {
+				.howto_num2 {
 					@include desktop {
-						font-size: 16px;
+						@include backgroundFig(235px, 30px, "howto_num2.png");
+					}
+				}
+				.howto_num3 {
+					@include desktop {
+						@include backgroundFig(235px, 30px, "howto_num3.png");
+					}
+				}
+				.howto_num4 {
+					@include desktop {
+						@include backgroundFig(235px, 30px, "howto_num4.png");
+					}
+				}
+				.howto_inner {
+					@include desktop {
+						position: relative;
+						width: 198px;
+						margin: 0 auto;
+					}
+					.howto_photo {
+						text-align: center;
+						@include desktop {
+							margin: 24px 0 36px;
+						}
+					}
+					.howto_desc {
+						@include desktop {
+							font-size: 16px;
+							line-height: 1.5em;
+						}
+					}
+					.howto2_notice {
+						@include desktop {
+							position: absolute;
+							top: 144px;
+							left: 5px;
+							@include backgroundFig(188px, 53px, "howto2_notice.png");
+						}
+					}
+					.howto3_notice {
+						@include desktop {
+							position: absolute;
+							top: 113px;
+							right: 0;
+							@include backgroundFig(118px, 89px, "howto3_notice.png");
+						}
+					}
+					.howto1_desc {
+						@include desktop {
+							margin-bottom: 64px;
+						}
+					}
+					.howt2_desc {
+						@include desktop {
+							margin-bottom: 15px;
+						}
+					}
+					.howto_point {
+						.howto_point_ttl {
+							font-weight: bold;
+							@include desktop {
+								margin-bottom: 12px;
+								padding-left: 39px;
+								background: url(#{$imgPath}howto_point_ttl_icon.png) no-repeat left top;
+								background-size: 32px 19px;
+								font-size: 13px;
+								line-height: 1.5em;
+							}
+						}
+						.howto_point_desc {
+							@include desktop {
+								margin-bottom: 7px;
+								font-size: 14px;
+								line-height: 1.5em;
+							}
+						}
+						.howto_point_notes {
+							color: #e60012;
+							@include desktop {
+								font-size: 12px;
+								line-height: 1.5em;
+							}
+						}
+					}
+				}
+			}
+		}
+		.howto_attention {
+			color: #e60012;
+			@include desktop {
+				margin-bottom: 23px;
+				font-size: 12px;
+				line-height: 1.5em;
+			}
+		}
+		.howto_point_wrap {
+			display: flex;
+			justify-content: space-between;
+			// 共通CSS
+			.howto_point_sub_ttl {
+				color: #fff;
+				text-align: center;
+				@include desktop {
+					padding: 10px;
+				}
+			}
+			// 4人前を作るポイントのみのCSS
+			.howto_four {
+				@include desktop {
+					width: 490px;
+					border: 2px solid $font-red;
+					box-sizing: border-box;
+				}
+				.howto_four_ttl {
+					background-color: $font-red;
+				}
+				.howto_four_desc {
+					color: $font-red;
+					@include desktop {
+						width: 456px;
+						padding: 8px 15px 5px;
+						border-bottom: 2px solid $font-red;
+						font-size: 14px;
+						line-height: 1.57em;
+					}
+				}
+				.howto_point_desc {
+					@include desktop {
+						padding-top: 4px;
+						font-size: 12px;
 						line-height: 1.5em;
 					}
 				}
-				.howto2_notice {
+				.howto_four_pot {
+					@include clearfix;
+					background: url(#{$imgPath}howto_four_pot_line.gif) repeat-x left bottom;
+					background-size: 8px 2px;
 					@include desktop {
-						position: absolute;
-						top: 144px;
-						left: 5px;
-						@include backgroundFig(188px, 53px, "howto2_notice.png");
+						width: 452px;
+						margin: 0 auto;
+						padding: 10px 0 12px;
 					}
-				}
-				.howto3_notice {
-					@include desktop {
-						position: absolute;
-						top: 113px;
-						right: 0;
-						@include backgroundFig(118px, 89px, "howto3_notice.png");
-					}
-				}
-				.howto1_desc {
-					@include desktop {
-						margin-bottom: 64px;
-					}
-				}
-				.howt2_desc {
-					@include desktop {
-						margin-bottom: 15px;
-					}
-				}
-				.howto_point {
-					.howto_point_ttl {
-						font-weight: bold;
+					.pot_icon {
+						float: left;
 						@include desktop {
-							margin-bottom: 12px;
-							padding-left: 39px;
-							background: url(#{$imgPath}howto_point_ttl_icon.png) no-repeat left top;
-							background-size: 32px 19px;
-							font-size: 13px;
-							line-height: 1.5em;
+							margin-right: 14px;
 						}
 					}
-					.howto_point_desc {
+					.pot_notice {
+						color: $font-red;
 						@include desktop {
-							margin-bottom: 7px;
-							font-size: 14px;
-							line-height: 1.5em;
-						}
-					}
-					.howto_point_notes {
-						color: #e60012;
-						@include desktop {
+							padding-top: 3px;
 							font-size: 12px;
-							line-height: 1.5em;
+						}
+					}
+				}
+				.howto_four_water {
+					@include desktop {
+						width: 452px;
+						margin: 0 auto;
+						padding: 10px 0 9px;
+					}
+					.water_icon {
+						float: left;
+						@include desktop {
+							margin: 4px 25px 0 9px;
+						}
+					}
+					.water_desc {
+						@include desktop {
+							padding-top: 0;
 						}
 					}
 				}
 			}
-		}
-	}
-	.howto_attention {
-		color: #e60012;
-		@include desktop {
-			margin-bottom: 23px;
-			font-size: 12px;
-			line-height: 1.5em;
-		}
-	}
-	.howto_point_wrap {
-		display: flex;
-		justify-content: space-between;
-		// 共通CSS
-		.howto_point_sub_ttl {
-			color: #fff;
-			text-align: center;
-			@include desktop {
-				padding: 10px;
-			}
-		}
-		// 4人前を作るポイントのみのCSS
-		.howto_four {
-			@include desktop {
-				width: 490px;
-				border: 2px solid $font-red;
-				box-sizing: border-box;
-			}
-			.howto_four_ttl {
-				background-color: $font-red;
-			}
-			.howto_four_desc {
-				color: $font-red;
+			// 早ゆでタイプのパスタを使う場合のみのCSS
+			.howto_fast {
 				@include desktop {
-					width: 456px;
-					padding: 8px 15px 5px;
-					border-bottom: 2px solid $font-red;
-					font-size: 14px;
-					line-height: 1.57em;
+					width: 490px;
+					border: 2px solid $font-green;
+					box-sizing: border-box;
 				}
-			}
-			.howto_point_desc {
-				@include desktop {
-					padding-top: 4px;
-					font-size: 12px;
-					line-height: 1.5em;
+				.howto_fast_ttl {
+					@include desktop {
+						background-color: $font-green;
+					}
 				}
-			}
-			.howto_four_pot {
-				@include clearfix;
-				background: url(#{$imgPath}howto_four_pot_line.gif) repeat-x left bottom;
-				background-size: 8px 2px;
-				@include desktop {
-					width: 452px;
+				.howto_fast_inner {
+					@include clearfix;
+					display: flex;
 					margin: 0 auto;
-					padding: 10px 0 12px;
-				}
-				.pot_icon {
-					float: left;
 					@include desktop {
-						margin-right: 14px;
+						width: 453px;
 					}
 				}
-				.pot_notice {
-					color: $font-red;
-					@include desktop {
-						padding-top: 3px;
-						font-size: 12px;
-					}
-				}
-			}
-			.howto_four_water {
-				@include desktop {
-					width: 452px;
-					margin: 0 auto;
-					padding: 10px 0 9px;
-				}
-				.water_icon {
-					float: left;
-					@include desktop {
-						margin: 4px 25px 0 9px;
-					}
-				}
-				.water_desc {
-					@include desktop {
-						padding-top: 0;
-					}
-				}
-			}
-		}
-		// 早ゆでタイプのパスタを使う場合のみのCSS
-		.howto_fast {
-			@include desktop {
-				width: 490px;
-				border: 2px solid $font-green;
-				box-sizing: border-box;
-			}
-			.howto_fast_ttl {
-				@include desktop {
-					background-color: $font-green;
-				}
-			}
-			.howto_fast_inner {
-				@include clearfix;
-				display: flex;
-				justify-content: space-between;
-				margin: 0 auto;
-				@include desktop {
-					width: 453px;
-				}
-			}
-			// 共通CSS
-			.fast_desc {
-				@include desktop {
-					font-size: 16px;
-				}
-				.red_txt {
-					color: $font-red;
-					@include desktop {
-						font-size: 20px;
-					}
-				}
-				.red_txt_small {
+				// 共通CSS
+				.fast_desc {
 					@include desktop {
 						font-size: 16px;
 					}
-				}
-			}
-			.fast_desc {
-				@include desktop {
-					margin-top: 35px;
-				}
-			}
-			// 早ゆで3分タイプのみのCSS
-			.howto_fast_three {
-				background: url(#{$imgPath}howto_fast_line.gif) repeat-x left bottom;
-				background-size: 8px 2px;
-				.fast_three_icon {
-					@include desktop {
-						margin: 14px 0 14px;
-						@include backgroundFig(107px, 68px, "fast_three_icon.png");
+					.red_txt {
+						color: $font-red;
+						@include desktop {
+							font-size: 20px;
+						}
+					}
+					.red_txt_small {
+						@include desktop {
+							font-size: 16px;
+						}
 					}
 				}
-			}
-			// 早ゆで6分タイプのみのCSS
-			.howto_fast_six {
-				.fast_six_icon {
+				.fast_desc {
 					@include desktop {
-						margin: 14px 0 13px;
-						@include backgroundFig(107px, 68px, "fast_six_icon.png");
+						margin-top: 35px;
+					}
+				}
+				// 早ゆで3分タイプのみのCSS
+				.howto_fast_three {
+					background: url(#{$imgPath}howto_fast_line.gif) repeat-x left bottom;
+					background-size: 8px 2px;
+					.fast_three_icon {
+						@include desktop {
+							margin: 14px 20px 14px 0;
+							@include backgroundFig(107px, 68px, "fast_three_icon.png");
+						}
+					}
+				}
+				// 早ゆで6分タイプのみのCSS
+				.howto_fast_six {
+					.fast_six_icon {
+						@include desktop {
+							margin: 14px 20px 13px 0;
+							@include backgroundFig(107px, 68px, "fast_six_icon.png");
+						}
 					}
 				}
 			}
 		}
 	}
 	.howto_bg_obj_wrap {
+		position: relative;
 		// 共通CSS
 		.howto_bg_obj {
 			position: absolute;
-			top: 0;
 		}
 		.howto_bg_obj1 {
 			@include desktop {
-				right: 0;
-				margin-top: 500px;
-				margin-right: -130px;
-				@include backgroundFig(116px, 120px, "howto_bg_obj1.png");
+				top: -870px;
+				left: 50%;
+				width: 116px;
+				height: 120px;
+				margin-left: 525px;
+				background: url(#{$imgPath}howto_bg_obj1.png) no-repeat center top;
 			}
 		}
 		.howto_bg_obj2 {
 			@include desktop {
-				left: 0;
-				margin-top: 640px;
-				margin-left: -240px;
-				@include backgroundFig(193px, 206px, "howto_bg_obj2.png");
+				top: -666px;
+				left: 50%;
+				width: 193px;
+				height: 206px;
+				margin-left: -737px;
+				background: url(#{$imgPath}howto_bg_obj2.png) no-repeat center top;
 			}
 		}
 		.howto_bg_obj3 {
 			@include desktop {
-				right: 0;
-				margin-top: 1159px;
-				@include backgroundFig(568px, 502px, "howto_bg_obj3.png");
+				top: -193px;
+				left: 50%;
+				width: 568px;
+				height: 502px;
+				margin-left: 25px;
+				background: url(#{$imgPath}howto_bg_obj3.png) no-repeat center top;
 			}
 		}
 	}
@@ -566,59 +574,107 @@ header {
 /** -----------------------
  * ワンポットパスタの特長
  * ---------------------- */
- .feature_area {
-	 position: relative;
-	 background-color: #f9f7e5;
-	 &:before {
-		 @include desktop {
-			 content: "";
-			 display: block;
-			 position: absolute;
-			 top: -83px;
-			 width: 100%;
-			 height: 83px;
-			 background: url(#{$imgPath}feature_bg_top.png) repeat-x center top;
-		 }
-	 }
-	 &:after {
-		 @include desktop {
-			 content: "";
-			 display: block;
-			 position: absolute;
-			 bottom: -83px;
-			 width: 100%;
-			 height: 83px;
-			 background: url(#{$imgPath}feature_bg_bottom.png) repeat-x center top;
-		 }
-	 }
-	 .feature_contents {
-		 @extend %ext_base_block;
-		 .feature_ttl {
-			 text-align: center;
-			 @include desktop {
-				 margin-bottom: 25px;
-				 padding-top: 40px;
-			 }
-		 }
-		 .feature_lead {
-			 text-align: center;
-			 @include desktop {
-				 margin-bottom: 41px;
-				 font-size: 18px;
-				 line-height: 1.55em;
-			 }
-		 }
-		 .feature_list {
-			 display: flex;
-			 justify-content: space-between;
-			 li {
-				 @include desktop {
-					 width: 316px;
-				 }
-			 }
-		 }
-	 }
- }
+.feature_area {
+	position: relative;
+	background-color: #f9f7e5;
+	&:before {
+	@include desktop {
+			content: "";
+			display: block;
+			position: absolute;
+			top: -83px;
+			width: 100%;
+			height: 83px;
+			background: url(#{$imgPath}feature_bg_top.png) repeat-x center top;
+		}
+	}
+	&:after {
+		@include desktop {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: -83px;
+			width: 100%;
+			height: 83px;
+			background: url(#{$imgPath}feature_bg_bottom.png) repeat-x center top;
+		}
+	}
+	.feature_contents {
+		@extend %ext_base_block;
+		.feature_ttl {
+			text-align: center;
+			@include desktop {
+				margin-bottom: 26px;
+				padding-top: 37px;
+			}
+		}
+		.feature_lead {
+			text-align: center;
+				@include desktop {
+				margin-bottom: 40px;
+				font-size: 18px;
+				line-height: 1.55em;
+			}
+		}
+		.feature_list {
+			display: flex;
+			justify-content: space-between;
+			li {
+				@include desktop {
+					width: 316px;
+				}
+				.feature_num1 {
+					@include desktop {
+						@include backgroundFig(316px, 40px, "feature_num1.png");
+					}
+				}
+				.feature_num2 {
+					@include desktop {
+						@include backgroundFig(316px, 40px, "feature_num2.png");
+					}
+				}
+				.feature_num3 {
+					@include desktop {
+						@include backgroundFig(316px, 40px, "feature_num3.png");
+					}
+				}
+				.feature_inner {
+					margin: 0 auto;
+					@include desktop {
+						width: 276px;
+					}
+					.feature_sub_ttl {
+						text-align: center;
+						@include desktop {
+							margin: 22px 0 11px;
+							font-size: 22px;
+							line-height: 1.54em;
+						}
+					}
+					.feature1_sub_ttl {
+						@include desktop {
+							margin: 36px 0 30px;
+						}
+					}
+					.feature_desc {
+						@include desktop {
+							margin-bottom: 15px;
+							font-size: 16px;
+							line-height: 1.75em;
+						}
+					}
+					.feature_notes {
+						color: $font-red;
+						@include desktop {
+							font-size: 14px;
+							line-height: 1.57em;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 
 /** -----------

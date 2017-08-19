@@ -174,23 +174,24 @@ header {
 		background: url(#{$imgPath}mv_bg1.png) no-repeat center top;
 	}
 	.mv_contents {
+		@extend %ext_base_block;
 		position: relative;
 		@include desktop {
-			width: 1100px;
 			margin: 0 auto;
 		}
 		@include smartphone {
-			height: 2000px;
 			padding-top: 20px;
 		}
 		.mv_copy {
 			@include desktop {
+				margin-left: -50px;
 				@include backgroundFig(795px, 352px, "mv_copy.png");
 			}
 		}
 		.mv_tag {
 			position: absolute;
 			@include desktop {
+				margin-left: -50px;
 				top: 368px;
 				left: 56px;
 			}

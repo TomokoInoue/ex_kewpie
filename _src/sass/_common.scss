@@ -684,6 +684,40 @@ header {
 	@include desktop {
 		margin-bottom: 100px;
 	}
+	// 背景の野菜
+	.recipe_bg_obj {
+		position: relative;
+		[class*=recipe_bg_obj] {
+			@include desktop {
+				position: absolute;
+				top: 0;
+				left: 50%;
+			}
+		}
+		// PC版
+		@include desktop {
+			.recipe_bg_obj1 {
+				top: -40px;
+				margin-left: -612px;
+				@include backgroundFig(1205px, 435px, "recipe_bg_obj1.png");
+			}
+			.recipe_bg_obj2 {
+				top: -117px;
+				margin-left: -430px;
+				@include backgroundFig(1131px, 522px, "recipe_bg_obj2.png");
+			}
+			.recipe_bg_obj3 {
+				top: -70px;
+				margin-left: -702px;
+				@include backgroundFig(286px, 225px, "recipe_bg_obj3.png");
+			}
+			.recipe_bg_obj4 {
+				top: 1190px;
+				margin-left: -722px;
+				@include backgroundFig(167px, 196px, "recipe_bg_obj4.png");
+			}
+		}
+	}
 	.recipe_contents {
 		@extend %ext_base_block;
 		.recipe_ttl {
@@ -948,6 +982,36 @@ header {
 	@include desktop {
 		margin-bottom: 145px;
 	}
+	// 背景の野菜
+	.intro_bg_obj {
+		@include desktop {
+			position: relative;
+		}
+		[class*=intro_bg_obj] {
+			@include desktop {
+				position: absolute;
+				top: 0;
+				left: 50%;
+			}
+		}
+		@include desktop {
+			.intro_bg_obj1 {
+				top: 20px;
+				margin-left: -846px;
+				@include backgroundFig(376px, 700px, "intro_bg_obj1.png");
+			}
+			.intro_bg_obj2 {
+				top: -50px;
+				margin-left: -538px;
+				@include backgroundFig(89px, 92px, "intro_bg_obj2.png");
+			}
+			.intro_bg_obj3 {
+				top: -343px;
+				margin-left: 480px;
+				@include backgroundFig(604px, 891px, "intro_bg_obj3.png");
+			}
+		}
+	}
 	.intro_contents {
 		@extend %ext_base_block;
 		.intro_ttl {
@@ -967,8 +1031,13 @@ header {
 			@include desktop {
 				display: flex;
 				justify-content: space-between;
+				width: 950px;
+				margin: 0 auto;
 			}
 			li {
+				@include desktop {
+					width: 294px;
+				}
 				.intro_product_name {
 					@include desktop {
 						margin: 24px 0;
@@ -983,6 +1052,7 @@ header {
 					}
 				}
 				.intro_product_btn {
+					margin: 0 auto;
 					@include desktop {
 						position: relative;
 						width: 264px;

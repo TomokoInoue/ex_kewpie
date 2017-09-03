@@ -248,6 +248,9 @@ header {
  * 基本の作り方
  * ------------ */
 .howto_area {
+	@include desktop {
+		position: relative;
+	}
 	.howto_contents {
 		@extend %ext_base_block;
 		@include desktop {
@@ -531,40 +534,41 @@ header {
 			}
 		}
 	}
-	.howto_bg_obj_wrap {
-		position: relative;
-		// 共通CSS
-		.howto_bg_obj {
+	.howto_bg_obj {
+		@include desktop {
 			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 1360px;
+			overflow: hidden;
+		}
+		// 共通CSS
+		[class*=howto_bg_obj] {
+			@include desktop {
+				position: absolute;
+				left: 50%;
+			}
 		}
 		.howto_bg_obj1 {
 			@include desktop {
-				top: -870px;
-				left: 50%;
-				width: 116px;
-				height: 120px;
-				margin-left: 525px;
-				background: url(#{$imgPath}howto_bg_obj1.png) no-repeat center top;
+				top: 486px;
+				margin-left: 520px;
+				@include backgroundFig(116px, 120px, "howto_bg_obj1.png");
 			}
 		}
 		.howto_bg_obj2 {
 			@include desktop {
-				top: -666px;
-				left: 50%;
-				width: 193px;
-				height: 206px;
-				margin-left: -737px;
-				background: url(#{$imgPath}howto_bg_obj2.png) no-repeat center top;
+				top: 687px;
+				margin-left: -736px;
+				@include backgroundFig(193px, 206px, "howto_bg_obj2.png");
 			}
 		}
 		.howto_bg_obj3 {
 			@include desktop {
-				top: -193px;
-				left: 50%;
-				width: 568px;
-				height: 502px;
+				top: 1159px;
 				margin-left: 25px;
-				background: url(#{$imgPath}howto_bg_obj3.png) no-repeat center top;
+				@include backgroundFig(568px, 502px, "howto_bg_obj3.png");
 			}
 		}
 	}
@@ -682,11 +686,17 @@ header {
  * -------------- */
 .recipe_area {
 	@include desktop {
+		position: relative;
 		margin-bottom: 100px;
 	}
 	// 背景の野菜
 	.recipe_bg_obj {
-		position: relative;
+		position: absolute;
+		top: -114px;
+		left: 0;
+		width: 100%;
+		height: 1504px;
+		overflow: hidden;
 		[class*=recipe_bg_obj] {
 			@include desktop {
 				position: absolute;
@@ -697,22 +707,22 @@ header {
 		// PC版
 		@include desktop {
 			.recipe_bg_obj1 {
-				top: -40px;
+				top: 70px;
 				margin-left: -612px;
 				@include backgroundFig(1205px, 435px, "recipe_bg_obj1.png");
 			}
 			.recipe_bg_obj2 {
-				top: -117px;
+				top: 0;
 				margin-left: -430px;
 				@include backgroundFig(1131px, 522px, "recipe_bg_obj2.png");
 			}
 			.recipe_bg_obj3 {
-				top: -70px;
+				top: 42px;
 				margin-left: -702px;
 				@include backgroundFig(286px, 225px, "recipe_bg_obj3.png");
 			}
 			.recipe_bg_obj4 {
-				top: 1190px;
+				top: 1302px;
 				margin-left: -722px;
 				@include backgroundFig(167px, 196px, "recipe_bg_obj4.png");
 			}
@@ -980,40 +990,14 @@ header {
  * ----------- */
 .intro_area {
 	@include desktop {
+		position: relative;
 		margin-bottom: 145px;
 	}
-	// 背景の野菜
-	.intro_bg_obj {
-		@include desktop {
-			position: relative;
-		}
-		[class*=intro_bg_obj] {
-			@include desktop {
-				position: absolute;
-				top: 0;
-				left: 50%;
-			}
-		}
-		@include desktop {
-			.intro_bg_obj1 {
-				top: 20px;
-				margin-left: -846px;
-				@include backgroundFig(376px, 700px, "intro_bg_obj1.png");
-			}
-			.intro_bg_obj2 {
-				top: -50px;
-				margin-left: -538px;
-				@include backgroundFig(89px, 92px, "intro_bg_obj2.png");
-			}
-			.intro_bg_obj3 {
-				top: -343px;
-				margin-left: 480px;
-				@include backgroundFig(604px, 891px, "intro_bg_obj3.png");
-			}
-		}
-	}
+	// コンテンツ
 	.intro_contents {
 		@extend %ext_base_block;
+		position: relative;
+		z-index: 10;
 		.intro_ttl {
 			text-align: center;
 			@include desktop {
@@ -1086,6 +1070,39 @@ header {
 						}
 					}
 				}
+			}
+		}
+	}
+	// 背景の野菜
+	.intro_bg_obj {
+		@include desktop {
+			position: absolute;
+			top: -341px;
+			width: 100%;
+			height: 1065px;
+			overflow: hidden;
+		}
+		[class*=intro_bg_obj] {
+			@include desktop {
+				position: absolute;
+				left: 50%;
+			}
+		}
+		@include desktop {
+			.intro_bg_obj1 {
+		        top: 365px;
+		        margin-left: -846px;
+		        @include backgroundFig(376px, 700px, "intro_bg_obj1.png");
+		    }
+		    .intro_bg_obj2 {
+		        top: 292px;
+		        margin-left: -538px;
+		        @include backgroundFig(89px, 92px, "intro_bg_obj2.png");
+		    }
+			.intro_bg_obj3 {
+				top: 0;
+				margin-left: 480px;
+				@include backgroundFig(604px, 891px, "intro_bg_obj3.png");
 			}
 		}
 	}

@@ -46,7 +46,7 @@
 
             var $link = $(this).attr('href');
             var $target = $($link === "#" || $link === "" ? "html" : $link);
-            var $position = $target.offset().top -110; // コンテンツ要素のトップから110px空ける
+            var $position = $target.offset().top -40; // コンテンツ要素のトップから110px空ける
 
             // 指定の場所へ移動する
             $("html, body").animate({

@@ -119,7 +119,7 @@ a:active { // クリックしてから離されるまでの状態
  * --------- */
 header {
 	position: relative;
-	z-index: 2;
+	z-index: 1;
 	@include desktop {
 		background: url(#{$imgPath}header_line.gif) repeat-x center bottom;
 		box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
@@ -197,7 +197,6 @@ header {
  * --------------- */
 .mv_area {
 	@include desktop {
-		height: 732px;
 		margin: 0 auto;
 		background: url(#{$imgPath}mv_bg1.png) no-repeat center top;
 	}
@@ -206,9 +205,6 @@ header {
 		position: relative;
 		@include desktop {
 			margin: 0 auto;
-		}
-		@include smartphone {
-			padding-top: 20px;
 		}
 		.mv_copy {
 			@include desktop {
@@ -242,11 +238,12 @@ header {
 	.mv_bg_obj_wrap {
 		position: relative;
 		// 共通CSS
-		.mv_bg_obj {
+		[class*=mv_bg_obj] {
 			position: absolute;
 			left: 0;
 			width: 100%;
 		}
+		// 背景の各野菜のごとのCSS
 		.mv_bg_obj1 {
 			@include desktop {
 				top: -357px;
@@ -278,11 +275,14 @@ header {
 .howto_area {
 	@include desktop {
 		position: relative;
+		top: -153px;
 	}
 	.howto_contents {
 		@extend %ext_base_block;
 		@include desktop {
+			position: relative;
 			margin: 232px auto 213px;
+			z-index: 3;
 		}
 		.howto_ttl {
 			text-align: center;
@@ -311,29 +311,22 @@ header {
 			}
 			li {
 				@include desktop {
+					position: relative;
 					width: 235px;
 					height: 518px;
-					background: url(#{$imgPath}howto_steps_bg.png) no-repeat center top;
+					border: 2px solid rgba(0,  145, 58, 0.6);
+					border-radius: 10px;
+					box-sizing: border-box;
 				}
-				.howto_num1 {
-					@include desktop {
-						@include backgroundFig(235px, 30px, "howto_num1.png");
-					}
-				}
-				.howto_num2 {
-					@include desktop {
-						@include backgroundFig(235px, 30px, "howto_num2.png");
-					}
-				}
-				.howto_num3 {
-					@include desktop {
-						@include backgroundFig(235px, 30px, "howto_num3.png");
-					}
-				}
-				.howto_num4 {
-					@include desktop {
-						@include backgroundFig(235px, 30px, "howto_num4.png");
-					}
+				[class*=howto_num] {
+					position: absolute;
+					top: -2px;
+					left: -2px;
+					width: 235px;
+					padding: 6px 0;
+					border-radius: 8px 8px 0 0;
+					background-color: #00913a;
+					text-align: center;
 				}
 				.howto_inner {
 					@include desktop {
@@ -344,16 +337,10 @@ header {
 					.howto_photo {
 						text-align: center;
 						@include desktop {
-							margin: 24px 0 36px;
+							margin: 50px 0 36px;
 						}
 					}
-					.howto_desc {
-						@include desktop {
-							font-size: 16px;
-							line-height: 1.5em;
-						}
-					}
-					.howto2_notice {
+					.howto_notice2 {
 						@include desktop {
 							position: absolute;
 							top: 144px;
@@ -361,7 +348,7 @@ header {
 							@include backgroundFig(188px, 53px, "howto2_notice.png");
 						}
 					}
-					.howto3_notice {
+					.howto_notice3 {
 						@include desktop {
 							position: absolute;
 							top: 113px;
@@ -369,12 +356,18 @@ header {
 							@include backgroundFig(118px, 89px, "howto3_notice.png");
 						}
 					}
-					.howto1_desc {
+					[class*=howto_desc] {
+						@include desktop {
+							font-size: 16px;
+							line-height: 1.5em;
+						}
+					}
+					.howto_desc1 {
 						@include desktop {
 							margin-bottom: 64px;
 						}
 					}
-					.howt2_desc {
+					.howto_desc2 {
 						@include desktop {
 							margin-bottom: 15px;
 						}
@@ -399,7 +392,7 @@ header {
 							}
 						}
 						.howto_point_notes {
-							color: #e60012;
+							color: $red;
 							@include desktop {
 								font-size: 12px;
 								line-height: 1.5em;
@@ -410,7 +403,7 @@ header {
 			}
 		}
 		.howto_attention {
-			color: #e60012;
+			color: $red;
 			@include desktop {
 				margin-bottom: 23px;
 				font-size: 12px;
@@ -421,7 +414,7 @@ header {
 			display: flex;
 			justify-content: space-between;
 			// 共通CSS
-			.howto_point_sub_ttl {
+			[class*=point_sub_ttl] {
 				color: #fff;
 				text-align: center;
 				@include desktop {
@@ -435,7 +428,7 @@ header {
 					border: 2px solid $red;
 					box-sizing: border-box;
 				}
-				.howto_four_ttl {
+				.point_sub_ttl_four {
 					background-color: $red;
 				}
 				.howto_four_desc {
@@ -448,7 +441,7 @@ header {
 						line-height: 1.57em;
 					}
 				}
-				.howto_point_desc {
+				[class*=howto_point_desc] {
 					@include desktop {
 						padding-top: 4px;
 						font-size: 12px;
@@ -490,7 +483,7 @@ header {
 							margin: 4px 25px 0 9px;
 						}
 					}
-					.water_desc {
+					.howto_point_desc_water {
 						@include desktop {
 							padding-top: 0;
 						}
@@ -504,12 +497,13 @@ header {
 					border: 2px solid $green;
 					box-sizing: border-box;
 				}
-				.howto_fast_ttl {
+				.point_sub_ttl_fast {
 					@include desktop {
 						background-color: $green;
 					}
 				}
-				.howto_fast_inner {
+				// 共通CSS
+				[class*=howto_fast_inner] {
 					@include clearfix;
 					display: flex;
 					margin: 0 auto;
@@ -517,7 +511,6 @@ header {
 						width: 453px;
 					}
 				}
-				// 共通CSS
 				.fast_desc {
 					@include desktop {
 						font-size: 16px;
@@ -540,10 +533,10 @@ header {
 					}
 				}
 				// 早ゆで3分タイプのみのCSS
-				.howto_fast_three {
+				.howto_fast_inner_three {
 					background: url(#{$imgPath}howto_fast_line.gif) repeat-x left bottom;
 					background-size: 8px 2px;
-					.fast_three_icon {
+					.fast_icon_three {
 						@include desktop {
 							margin: 14px 20px 14px 0;
 							@include backgroundFig(107px, 68px, "fast_three_icon.png");
@@ -551,8 +544,8 @@ header {
 					}
 				}
 				// 早ゆで6分タイプのみのCSS
-				.howto_fast_six {
-					.fast_six_icon {
+				.howto_fast_inner_six {
+					.fast_icon_six {
 						@include desktop {
 							margin: 14px 20px 13px 0;
 							@include backgroundFig(107px, 68px, "fast_six_icon.png");
@@ -578,6 +571,7 @@ header {
 				left: 50%;
 			}
 		}
+		// 背景の各野菜ごとのCSS
 		.howto_bg_obj1 {
 			@include desktop {
 				top: 486px;
@@ -609,6 +603,9 @@ header {
 .feature_area {
 	position: relative;
 	background-color: #f9f7e5;
+	@include desktop {
+		top: -153px;
+	}
 	&:before {
 	@include desktop {
 			content: "";
@@ -633,11 +630,13 @@ header {
 	}
 	.feature_contents {
 		@extend %ext_base_block;
+		@include desktop {
+			padding: 42px 0 7px;
+		}
 		.feature_ttl {
 			text-align: center;
 			@include desktop {
 				margin-bottom: 26px;
-				padding-top: 37px;
 			}
 		}
 		.feature_lead {
@@ -675,7 +674,8 @@ header {
 					@include desktop {
 						width: 276px;
 					}
-					.feature_sub_ttl {
+					// 共通のCSS
+					[class*=feature_sub_ttl] {
 						text-align: center;
 						@include desktop {
 							margin: 22px 0 11px;
@@ -683,7 +683,8 @@ header {
 							line-height: 1.54em;
 						}
 					}
-					.feature1_sub_ttl {
+					// 各要素ごとのCSS
+					.feature_sub_ttl1 {
 						@include desktop {
 							margin: 36px 0 30px;
 						}
@@ -715,6 +716,7 @@ header {
 .recipe_area {
 	@include desktop {
 		position: relative;
+		top: -153px;
 		margin-bottom: 100px;
 	}
 	// 背景の野菜
@@ -723,8 +725,9 @@ header {
 		top: -114px;
 		left: 0;
 		width: 100%;
-		height: 1504px;
+		height: 100%;
 		overflow: hidden;
+		// 共通CSS
 		[class*=recipe_bg_obj] {
 			@include desktop {
 				position: absolute;
@@ -732,7 +735,7 @@ header {
 				left: 50%;
 			}
 		}
-		// PC版
+		// PC版 各野菜のCSS
 		@include desktop {
 			.recipe_bg_obj1 {
 				top: 70px;
@@ -839,7 +842,7 @@ header {
 						}
 					}
 					// メインレシピ共通のCSS
-					.recipe_main_img {
+					[class*=recipe_main_img] {
 						@include desktop {
 							margin-bottom: 10px;
 						}
@@ -864,7 +867,7 @@ header {
 							}
 						}
 					}
-					.recipe_main_btn {
+					[class*=recipe_main_btn] {
 						@include desktop {
 							position: relative;
 							float: right;
@@ -882,6 +885,7 @@ header {
 							}
 						}
 					}
+					// メインレシピ各画像のCSS
 					@include desktop {
 						.recipe_main_btn_cream {
 							& > a {
@@ -905,7 +909,7 @@ header {
 							margin: 40px 0 36px;
 						}
 					}
-					.recipe_sub_ttl {
+					[class*=recipe_sub_ttl] {
 						text-align: center;
 						@include desktop {
 							margin-bottom: 29px;
@@ -913,7 +917,7 @@ header {
 							line-height: 1.44em;
 						}
 					}
-					.recipe_sub_btn {
+					[class*=recipe_sub_btn] {
 						margin: 0 auto;
 						@include desktop {
 							position: relative;
@@ -931,6 +935,7 @@ header {
 							}
 						}
 					}
+					// サブレシピ各画像ごとのCSS
 					@include desktop {
 						.recipe_sub_btn_cream {
 							& > a {
@@ -1019,9 +1024,8 @@ header {
 .intro_area {
 	@include desktop {
 		position: relative;
-		margin-bottom: 145px;
+		top: -153px;
 	}
-	// コンテンツ
 	.intro_contents {
 		@extend %ext_base_block;
 		position: relative;
@@ -1063,7 +1067,8 @@ header {
 						line-height: 1.5em;
 					}
 				}
-				.intro_product_btn {
+				// ボタン共通のCSS
+				[class*=intro_product_btn] {
 					margin: 0 auto;
 					@include desktop {
 						position: relative;
@@ -1081,6 +1086,7 @@ header {
 						}
 					}
 				}
+				// 各ボタンごとのCSS
 				@include desktop {
 					.intro_product_btn_cream {
 						& > a {
@@ -1110,12 +1116,14 @@ header {
 			height: 1065px;
 			overflow: hidden;
 		}
+		// 共通のCSS
 		[class*=intro_bg_obj] {
 			@include desktop {
 				position: absolute;
 				left: 50%;
 			}
 		}
+		// 背景の各野菜ごとのCSS
 		@include desktop {
 			.intro_bg_obj1 {
 		        top: 365px;
@@ -1142,6 +1150,7 @@ header {
  * ------------------ */
 .page_top_btn {
 	position: fixed;
+	z-index: 4;
 	@include desktop {
 		right: 48px;
 		bottom: 60px;
@@ -1153,7 +1162,11 @@ header {
  * フッター
  * ----------- */
 footer {
+	position: relative;
 	background-color: #fff;
+	@include desktop {
+		margin-top: -10px;
+	}
 	.footer_contens {
 		@extend %ext_base_block;
 		@include desktop {

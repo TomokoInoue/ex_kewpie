@@ -89,12 +89,10 @@ body {
 	background-color: $baseBkgColor;
 	color: $base-font-color;
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
-	img {
+	* img {
 		vertical-align: bottom;
-		@include smartphone {
-			max-width: 100%;
-	        height: auto;
-		}
+		max-width: 100%;
+        height: auto;
 	}
 	@include desktop {
 		font-size: $base-font-size;
@@ -160,7 +158,33 @@ header {
  * ナビゲーション
  * --------------- */
 .nav_area {
-	display: none;
+	@include desktop {
+		display: none;
+		position: fixed;
+		width: 100%;
+		background-color: rgba(255, 255, 255, 0.9);
+		z-index: 11;
+	}
+	.nav_contents {
+		@include desktop {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 1000px;
+			margin: 0 auto;
+			padding: 18px 0 17px;
+		}
+		nav > ul {
+			display: flex;
+			justify-content: space-between;
+			width: 535px;
+		}
+		.nav_sns {
+			display: flex;
+			justify-content: space-between;
+			width: 98px;
+		}
+	}
 }
 
 

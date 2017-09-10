@@ -175,14 +175,18 @@ header {
 			padding: 18px 0 17px;
 		}
 		nav > ul {
-			display: flex;
-			justify-content: space-between;
-			width: 535px;
+			@include desktop {
+				display: flex;
+				justify-content: space-between;
+				width: 535px;
+			}
 		}
 		.nav_sns {
-			display: flex;
-			justify-content: space-between;
-			width: 98px;
+			@include desktop {
+				display: flex;
+				justify-content: space-between;
+				width: 98px;
+			}
 		}
 	}
 }

@@ -761,6 +761,8 @@ header {
 	}
 	.recipe_contents {
 		@extend %ext_base_block;
+		position: relative;
+		z-index: 14;
 		.recipe_ttl {
 			margin: 153px auto 30px;
 			@include desktop {

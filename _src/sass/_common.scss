@@ -120,15 +120,19 @@ a:active { // クリックしてから離されるまでの状態
  * --------- */
 header {
 	position: relative;
-	z-index: 1;
+	z-index: 16;
 	@include desktop {
 		background: url(#{$imgPath}header_line.gif) repeat-x center bottom;
 		box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
 	}
 	@include smartphone {
-		background: url(#{$imgPath}header_line_sp.gif) repeat-x center bottom;
-		background-size: 375px 2px;
-		box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+		display: flex;
+		justify-content: space-between;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
 	}
 	.header_contentes {
 		@extend %ext_base_block_pc;
@@ -137,7 +141,10 @@ header {
 			padding: 16px 0 17px;
 		}
 		@include smartphone {
+			width: 100%;
 			padding: 7px 0 8px;
+			background: url(#{$imgPath}header_line_sp.gif) repeat-x center bottom;
+			background-size: 375px 2px;
 		}
 		.header_logo {
 			text-align: center;
@@ -147,60 +154,6 @@ header {
 				> img {
 					width: 100%;
 					height: auto;
-				}
-			}
-		}
-		.header_nav_btn {
-			@include desktop {
-				display: none;
-			}
-			@include smartphone {
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 60px;
-				height: 60px;
-				background-color: #00913a;
-			}
-			> a {
-				display: block;
-				.header_nav_name {
-					@include smartphone {
-						position: relative;
-						margin: 0 auto;
-						padding: 15px 0 6px;
-						font-size: 10px;
-						font-weight: bold;
-						color: #fff;
-						text-align: center;
-					}
-				}
-				span,
-				span:before,
-				span:after {
-					@include smartphone {
-						position: absolute;
-						top: 30px;
-						right: 13px;
-						content: "";
-						display: block;
-						width: 35px;
-						margin: 0 auto;
-						border-top: 2px solid #fff;
-						border-radius: 1px;
-					}
-				}
-				span:before {
-					@include smartphone {
-						top: 4px;
-						right: 0;
-					}
-				}
-				span:after {
-					@include smartphone {
-						top: 10px;
-						right: 0;
-					}
 				}
 			}
 		}
@@ -221,44 +174,59 @@ header {
 			}
 		}
 	}
-}
-
-
-/** ----------------
- * ナビゲーション
- * --------------- */
-.nav_area {
-	@include desktop {
-		display: none;
-		position: fixed;
-		width: 100%;
-		background-color: rgba(255, 255, 255, 0.9);
-		z-index: 11;
-	}
-	.nav_contents {
-		@include desktop {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			width: 1000px;
-			margin: 0 auto;
-			padding: 18px 0 17px;
-		}
-		nav > ul {
-			@include desktop {
-				display: flex;
-				justify-content: space-between;
-				width: 535px;
-			}
-		}
-		.nav_sns {
-			@include desktop {
-				display: flex;
-				justify-content: space-between;
-				width: 98px;
-			}
-		}
-	}
+	.header_nav_btn {
+ 		@include desktop {
+ 			display: none;
+ 		}
+ 		@include smartphone {
+ 			position: relative;
+			width: 60px;
+ 			height: 60px;
+ 			background-color: #00913a;
+ 		}
+ 		> a {
+ 			display: block;
+			width: 60px;
+			height: 60px;
+ 			.header_nav_name {
+ 				@include smartphone {
+ 					position: relative;
+ 					padding: 15px 0 6px;
+ 					font-size: 10px;
+ 					font-weight: bold;
+ 					color: #fff;
+ 					text-align: center;
+ 				}
+ 			}
+ 			span,
+ 			span:before,
+ 			span:after {
+ 				@include smartphone {
+ 					position: absolute;
+ 					top: 30px;
+ 					right: 13px;
+ 					content: "";
+ 					display: block;
+ 					width: 35px;
+ 					margin: 0 auto;
+ 					border-top: 2px solid #fff;
+ 					border-radius: 1px;
+ 				}
+ 			}
+ 			span:before {
+ 				@include smartphone {
+ 					top: 4px;
+ 					right: 0;
+ 				}
+ 			}
+ 			span:after {
+ 				@include smartphone {
+ 					top: 10px;
+ 					right: 0;
+ 				}
+ 			}
+ 		}
+ 	}
 }
 
 
@@ -336,6 +304,195 @@ header {
 			}
 		}
 	}
+}
+
+
+/** ----------------
+ * ナビゲーション
+ * --------------- */
+.nav_area {
+	position: fixed;
+	width: 100%;
+	z-index: 15;
+ 	@include desktop {
+ 		display: none;
+		top: 0;
+ 		background-color: rgba(255, 255, 255, 0.9);
+ 	}
+	@include smartphone {
+		display: none;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		max-height: 100%;
+		padding-top: 60px;
+		overflow: scroll;
+		background-color: #fff;
+		box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+		-webkit-overflow-scrolling: touch;
+	}
+ 	.nav_contents {
+		@extend %ext_base_block_pc;
+ 		@include desktop {
+ 			display: flex;
+ 			justify-content: space-between;
+ 			align-items: center;
+ 			margin: 0 auto;
+ 			padding: 18px 0 18px;
+ 		}
+		.nav_logo {
+			@include smartphone {
+				display: none;
+			}
+			a {
+				display: block;
+			}
+		}
+ 		nav > ul {
+ 			@include desktop {
+ 				display: flex;
+ 				justify-content: space-between;
+ 				width: 535px;
+ 			}
+			li {
+				a > img {
+					vertical-align: middle;
+				}
+				@include smartphone {
+					border-bottom: 2px solid #ccc;
+					line-height: 3.1em;
+					> a {
+						display: block;
+							padding: 0 percentage(40 / 750);
+					}
+				}
+			}
+			// 基本の作り方
+			.nav_howto {
+				@include smartphone {
+					padding: 0;
+					border-bottom: none;
+				}
+				.nav_howto_ttl {
+					@include smartphone {
+						border-bottom: 2px solid #ccc;
+					}
+					img {
+						@include smartphone {
+							width: 91px;
+						}
+					}
+				}
+				.nav_howto_four,
+				.nav_howto_fast {
+					@include desktop {
+						display: none;
+					}
+					> a {
+						@include smartphone {
+							padding: 0 percentage(70 / 750);
+						}
+					}
+				}
+			}
+			// おすすめレシピ
+			.nav_recipe {
+				.nav_recipe_ttl {
+					@include smartphone {
+						border-bottom: 2px solid #ccc;
+					}
+				}
+				.nav_recipe_contents {
+					@include smartphone {
+						display: flex;
+						justify-content: space-between;
+						padding: percentage(30 / 750) percentage(70 / 750);
+					}
+				}
+			}
+			// 商品紹介
+			.nav_intro {
+				.nav_intro_ttl {
+					@include smartphone {
+						border-bottom: 2px solid #ccc;
+					}
+				}
+				.nav_intro_contents {
+					@include smartphone {
+						display: flex;
+						justify-content: space-between;
+						padding: percentage(30 / 750) percentage(98 / 750);
+					}
+				}
+			}
+			// SP版 メニュータイトルのサイズ変更
+			@include smartphone {
+				.nav_feature img {
+					width: 146px;
+				}
+				.nav_recipe img {
+					width: 90px;
+				}
+				.nav_intro img {
+					width: 65px;
+				}
+			}
+ 		}
+		// SNSシェアボタン
+ 		.nav_sns {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+ 			@include desktop {
+ 				width: 114px;
+ 			}
+			@include smartphone {
+				border-bottom: 2px solid #ccc;
+			}
+			li {
+				@include smartphone {
+					width: 100%;
+					padding: 24px 0;
+					border-left: 2px solid #ccc;
+					&:first-child {
+						border-left: none;
+					}
+				}
+				> a {
+					display: block;
+					margin: 0 auto;
+				}
+			}
+			.nav_sns_fb > a {
+				@include desktop {
+					@include backgroundFig(50px, 50px, "sns_fb.png");
+				}
+				@include smartphone {
+					@include backgroundFigSP(100%, 22px, "sns_fb_sp.png");
+				}
+			}
+			.nav_sns_tw > a {
+				@include desktop {
+					@include backgroundFig(50px, 50px, "sns_tw.png");
+				}
+				@include smartphone {
+					@include backgroundFigSP(100%, 22px, "sns_tw_sp.png");
+				}
+			}
+			.nav_sns_line {
+				@include desktop {
+					display: none;
+				}
+				> a {
+					@include smartphone {
+						@include backgroundFigSP(100%, 22px, "sns_line_sp.png");
+					}
+				}
+			}
+ 		}
+ 	}
 }
 
 

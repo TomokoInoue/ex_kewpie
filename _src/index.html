@@ -24,35 +24,18 @@
     <header>
         <div class="header_contentes">
             <p class="header_logo"><img src="images/header_logo.png" alt="キューピー３分クッキング ワンポットパスタ" width="282"></p>
-            <div class="header_nav_btn">
-                <a href="">
-                    <p class="header_nav_name">MENU</p>
-                    <span></span>
-                </a>
-            </div>
             <ul class="header_sns">
                 <li><a class="js-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f" target="_blank"><img src="images/sns_fb.png" alt="Facebookでシェアする" width="50"></a></li>
                 <li><a class="js-tw" href="https://twitter.com/share?url=https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f&text=%e3%81%b4%e3%83%bc%e3%81%95%e3%82%93%e3%81%ae%e3%83%94%e3%83%b3%e3%82%bf%e3%83%ac%e3%82%b9%e3%83%88&hashtags=さつまいも" target="_blank"><img src="images/sns_tw.png" alt="ツイートする" width="50"></a></li>
             </ul>
         </div>
-    </header>
-    <div class="nav_area">
-        <div class="nav_contents">
-            <p class="nav_logo"><a href="#"><img src="images/header_logo.png" alt="キューピー３分クッキング ワンポットパスタ" width="182"></a></p>
-            <nav>
-                <ul>
-                    <li><a href=""><img src="images/nav_howto.png" alt="基本のレシピ" width="99"></a></li>
-                    <li><a href=""><img src="images/nav_feature.png" alt="ワンポットパスタの特長" width="157"></a></li>
-                    <li><a href=""><img src="images/nav_recipe.png" alt="おすすめレシピ" width="98"></a></li>
-                    <li><a href=""><img src="images/nav_product.png" alt="商品紹介" width="69"></a></li>
-                </ul>
-            </nav>
-            <ul class="nav_sns">
-                <li><a class="js-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f" target="_blank"><img src="images/sns_fb.png" alt="Facebookでシェアする" width="44"></a></li>
-                <li><a class="js-tw" href="https://twitter.com/share?url=https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f&text=%e3%81%b4%e3%83%bc%e3%81%95%e3%82%93%e3%81%ae%e3%83%94%e3%83%b3%e3%82%bf%e3%83%ac%e3%82%b9%e3%83%88&hashtags=さつまいも" target="_blank"><img src="images/sns_tw.png" alt="ツイートする" width="44"></a></li>
-            </ul>
+        <div class="header_nav_btn">
+            <a href="">
+                <p class="header_nav_name">MENU</p>
+                <span></span>
+            </a>
         </div>
-    </div><!-- .nav_area -->
+    </header>
     <section class="mv_area">
         <div class="mv_contents">
             <p class="mv_copy">お鍋ひとつでササッと野菜たっぷりパスタ。</p>
@@ -70,7 +53,45 @@
             <div class="mv_bg_obj3"></div>
         </div>
     </section><!-- .mv_area -->
-    <section class="howto_area">
+    <div class="nav_area">
+        <div class="nav_contents">
+            <p class="nav_logo"><a href="#"><img src="images/header_logo.png" alt="キューピー３分クッキング ワンポットパスタ" width="182"></a></p>
+            <nav>
+                <ul>
+                    <li class="nav_howto">
+                        <a class="nav_howto_ttl" href="#howto_section"><img src="images/nav_howto.png" alt="基本のレシピ" width="99"></a>
+                        <ul>
+                            <li class="nav_howto_four"><a href="#howto_four_section"><img src="images/nav_howto_four.png" alt="４人前を作るポイント" width="138"></a></li>
+                            <li class="nav_howto_fast"><a href="#howto_fast_section"><img src="images/nav_howto_fast.png" alt="早ゆでタイプのパスタを使う場合" width="219"></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav_feature"><a href="#feature_section"><img src="images/nav_feature.png" alt="ワンポットパスタの特長" width="157"></a></li>
+                    <li class="nav_recipe">
+                        <a class="nav_recipe_ttl" href="#recipe_section"><img src="images/nav_recipe.png" alt="おすすめレシピ" width="98"></a>
+                        <div class="nav_recipe_contents">
+                            <p class="nav_recipe_cream"><a href="#recipe_menu_cream"><img src="images/nav_recipe_cream.png" alt="なめらかクリーム味" width="91"></a></p>
+                            <p class="nav_recipe_dashi"><a href="#recipe_menu_dashi"><img src="images/nav_recipe_dashi.png" alt="だし醤油味" width="91"></a></p>
+                            <p class="nav_recipe_tomato"><a href="#recipe_menu_tomato"><img src="images/nav_recipe_tomato.png" alt="コクのトマト味" width="91"></a></p>
+                        </div>
+                    </li>
+                    <li class="nav_intro">
+                        <a class="nav_intro_ttl" href="#intro_section"><img src="images/nav_intro.png" alt="商品紹介" width="69"></a>
+                        <div class="nav_intro_contents">
+                            <p class="nav_intro_cream"><a href=""><img src="images/nav_intro_cream.png" alt="なめらかクリーム味" width="63"></a></p>
+                            <p class="nav_intro_dashi"><a href=""><img src="images/nav_intro_dashi.png" alt="だし醤油味" width="60"></a></p>
+                            <p class="nav_intro_tomato"><a href=""><img src="images/nav_intro_tomato.png" alt="コクのトマト味" width="60"></a></p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <ul class="nav_sns">
+                <li class="nav_sns_fb"><a class="js-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f" target="_blank">Facebookでシェアする</a></li>
+                <li class="nav_sns_tw"><a class="js-tw" href="https://twitter.com/share?url=https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f&text=%e3%81%b4%e3%83%bc%e3%81%95%e3%82%93%e3%81%ae%e3%83%94%e3%83%b3%e3%82%bf%e3%83%ac%e3%82%b9%e3%83%88&hashtags=さつまいも" target="_blank">ツイートする</a></li>
+                <li class="nav_sns_line"><a class="js-line" href="http://line.me/R/msg/text/?https%3a%2f%2fwww%2epinterest%2ejp%2fpinpon0521%2f" target="_blank">LINEで送る</a></li>
+            </ul>
+        </div>
+    </div><!-- .nav_area -->
+    <section class="howto_area" id="howto_section">
         <div class="howto_contents">
             <h2 class="howto_ttl"><img src="images/howto_ttl.png" alt="2人前 基本の作り方" width="337"></h2>
             <p class="howto_lead">お鍋ひとつで、パスタも乾麺のまま具材と一緒に煮込むだけ。パスタで別にゆでる<br>手間もいりません。お鍋ひとつなので後片付けもとってもかんたんです。</p>
@@ -122,7 +143,7 @@
                 ※４人分を作る時は、本品を２袋使用し、鍋や水分量は下記にならって調理してください。<br>
             </p>
             <div class="howto_point_wrap">
-                <div class="howto_four">
+                <div class="howto_four" id="howto_four_section">
                     <h3 class="point_sub_ttl_four">4人前を作るポイント</h3>
                     <p class="howto_four_desc">４人前を作る時は、本品を２個使用し、鍋や水分量は下記にならって調理してください。</p>
                     <div class="howto_four_pot">
@@ -135,7 +156,7 @@
                         <p class="howto_point_desc_water">水分量は2人前の1.5倍。<br>[なめらかクリーム味]牛乳300ml、水300ml<br>[だし醤油味][コクのトマト味] 水600ml</p>
                     </div>
                 </div>
-                <div class="howto_fast">
+                <div class="howto_fast" id="howto_fast_section">
                     <h3 class="point_sub_ttl_fast">早ゆでタイプのパスタを使う場合</h3>
                     <div class="howto_fast_inner_three">
                         <p class="fast_icon_three">早ゆで3分タイプ</p>
@@ -154,7 +175,7 @@
             <div class="howto_bg_obj3"></div>
         </div><!-- .howto_bg_obj -->
     </section><!-- .howto_area -->
-    <section class="feature_area">
+    <section class="feature_area" id="feature_section">
         <div class="feature_contents">
             <h2 class="feature_ttl"><img src="images/feature_ttl.png" alt="ワンポットパスタの特長" width="546"></h2>
             <p class="feature_lead">ワンポットパスタってどんなパスタ？<br>乾麺のままのパスタと具材、ソースを一緒に煮込むだけで完成するパスタ。<br>お鍋ひとつで煮込むことでソースがパスタに染み込み、一体感のある味わいがたのしめます。</p>
@@ -184,7 +205,7 @@
             </ul>
         </div>
     </section><!-- .feature_area -->
-    <section class="recipe_area">
+    <section class="recipe_area" id="recipe_section">
         <div class="recipe_bg_obj">
             <div class="recipe_bg_obj1"></div>
             <div class="recipe_bg_obj2"></div>
@@ -290,24 +311,24 @@
             </ul>
         </div>
     </section><!-- .recipe_area -->
-    <section class="intro_area">
+    <section class="intro_area" id="intro_section">
         <div class="intro_contents">
             <h2 class="intro_ttl"><img src="images/intro_ttl.png" alt="商品紹介" width="246"></h2>
             <p class="intro_lead">アレンジもたのしい『ワンポットパスタ』。3種類の味がおたのしみいただけます。</p>
             <ul class="intro_product">
-                <li>
+                <li id="intro_pkg_cream">
                     <p class="intro_product_pkg"><img src="images/pkg_cream.png" alt="キューピー３分クッキング ワンポットパスタ なめらかクリーム味" width="200"></p>
                     <p class="intro_product_name">なめらかクリーム味</p>
                     <p class="intro_product_desc">チキンのコクとうま味をいかした、<br>なめらかでクリーミィな<br>パスタソースです。</p>
                     <p class="intro_product_btn_cream"><a href="https://jp.pinterest.com/pinpon0521/" target="_blank">詳細はこちら</a></p>
                 </li>
-                <li>
+                <li id="intro_pkg_dashi">
                     <p class="intro_product_pkg"><img src="images/pkg_dashi.png" alt="キューピー３分クッキング ワンポットパスタ だし醤油味" width="200"></p>
                     <p class="intro_product_name">だし醤油味</p>
                     <p class="intro_product_desc">かつおと昆布の合わせたしをきかせ、<br>香り扁いたまり醤油で仕立てた<br>和風のパスタソースです。</p>
                     <p class="intro_product_btn_dashi"><a href="https://jp.pinterest.com/pinpon0521/" target="_blank">詳細はこちら</a></p>
                 </li>
-                <li>
+                <li id="intro_pkg_tomato">
                     <p class="intro_product_pkg"><img src="images/pkg_tomato.png" alt="キューピー３分クッキング ワンポットパスタ コクのトマト味" width="200"></p>
                     <p class="intro_product_name">コクのトマト味</p>
                     <p class="intro_product_desc">じっくり炒めたにんにくと<br>玉ねぎのコクをいかした、<br>風味豊かなトマトソースパスタです。</p>

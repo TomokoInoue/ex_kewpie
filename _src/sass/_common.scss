@@ -242,6 +242,7 @@ header {
 	@include smartphone {
 		padding-top: 60px;
 		background: url(#{$imgPath}mv_bg1_sp.png) no-repeat center 60px;
+		background-size: contain;
 	}
 	.mv_contents {
 		@extend %ext_base_block_pc;
@@ -269,7 +270,7 @@ header {
 				left: 56px;
 			}
 			@include smartphone {
-				width: 162px;
+				width: percentage(162 / 750);
 				padding: percentage(134 / 750) 0 0 percentage(30 / 750);
 				> img {
 					width: 100%;
@@ -283,7 +284,7 @@ header {
 				margin: 154px 0 32px 9px;
 			}
 			@include smartphone {
-				width: 398px;
+				width: percentage(398 / 750);
 				margin: percentage(219 / 750) 0 percentage(28 / 750) percentage(193 / 750);
 				> img {
 					width: 100%;
@@ -311,38 +312,47 @@ header {
 		}
 	}
 	.mv_bg_obj_wrap {
-		@include desktop {
-			position: relative;
-			// 共通CSS
-			[class*=mv_bg_obj] {
-				position: absolute;
-				left: 0;
-				width: 100%;
-			}
-		}
-		@include smartphone {
-			display: none;
+		position: relative;
+		// 共通CSS
+		[class*=mv_bg_obj] {
+			position: absolute;
+			width: 100%;
 		}
 		// 背景の各野菜のごとのCSS
 		.mv_bg_obj1 {
 			@include desktop {
 				top: -357px;
+				left: 0;
 				height: 560px;
 				background: url(#{$imgPath}mv_bg_obj1.png) no-repeat center top;
+			}
+			@include smartphone {
+				top: 0;
+				right: 0;
+				margin-top: percentage(-30 / 750);
+				@include backgroundFigSP(percentage(99 / 750), percentage(169 / 750), "mv_bg_obj1_sp.png");
 			}
 		}
 		.mv_bg_obj2 {
 			@include desktop {
 				top: -301px;
+				left: 0;
 				height: 342px;
 				background: url(#{$imgPath}mv_bg_obj2.png) no-repeat center top;
+			}
+			@include smartphone {
+				display: none;
 			}
 		}
 		.mv_bg_obj3 {
 			@include desktop {
 				top: -285px;
+				left: 0;
 				height: 594px;
 				background: url(#{$imgPath}mv_bg_obj3.png) no-repeat center top;
+			}
+			@include smartphone {
+				display: none;
 			}
 		}
 	}
@@ -352,7 +362,7 @@ header {
 /** ----------------
  * ナビゲーション
  * --------------- */
-.nav_area {
+nav {
 	position: fixed;
 	width: 100%;
 	z-index: 16;
@@ -391,7 +401,7 @@ header {
 				display: block;
 			}
 		}
- 		nav > ul {
+ 		.nav_list {
  			@include desktop {
  				display: flex;
  				justify-content: space-between;
@@ -547,22 +557,35 @@ header {
 	}
 	.howto_contents {
 		@extend %ext_base_block;
+		position: relative;
+		z-index: 3;
 		@include desktop {
-			position: relative;
 			margin: 232px auto 213px;
-			z-index: 3;
 		}
 		.howto_ttl {
 			text-align: center;
 			@include desktop {
 				margin-bottom: 26px;
 			}
+			@include smartphone {
+				width: percentage(402 / 670);
+				margin: 0 auto percentage(42 / 670);
+				> img {
+					width: 100%;
+					height: auto;
+				}
+			}
 		}
 		.howto_lead {
-			text-align: center;
 			@include desktop {
 				margin-bottom: 40px;
 				line-height: 1.55em;
+				text-align: center;
+			}
+			@include smartphone {
+				margin-bottom: percentage(42 / 670);
+				font-size: 4.26vw;
+				line-height: 1.37em;
 			}
 		}
 		.howto_sub_ttl {
@@ -570,12 +593,19 @@ header {
 				margin-bottom: 24px;
 				@include backgroundFig(1000px, 45px, "howto_sub_ttl.png");
 			}
+			@include smartphone {
+				margin-bottom: percentage(32 / 670);
+				@include backgroundFigSP(percentage(670 / 670), percentage(76 / 670), "howto_sub_ttl_sp.png");
+			}
 		}
 		.howto_steps {
-			display: flex;
-			justify-content: space-between;
 			@include desktop {
+				display: flex;
+				justify-content: space-between;
 				margin-bottom: 8px;
+			}
+			@include smartphone {
+				margin-bottom: percentage(40 / 670);
 			}
 			li {
 				@include desktop {
@@ -586,70 +616,183 @@ header {
 					border-radius: 10px;
 					box-sizing: border-box;
 				}
-				[class*=howto_num] {
-					position: absolute;
-					top: -2px;
-					left: -2px;
-					width: 235px;
-					padding: 6px 0;
-					border-radius: 8px 8px 0 0;
-					background-color: #00913a;
-					text-align: center;
+				@include smartphone {
+					@include clearfix;
+					margin-bottom: percentage(15 / 670);
 				}
-				.howto_inner {
+				// 番号の共通のCSS
+				[class*=howto_num] {
 					@include desktop {
-						position: relative;
+						position: absolute;
+						top: -2px;
+						left: -2px;
+					}
+					@include smartphone {
+						float: left;
+						margin-right: percentage(22 / 670);
+					}
+				}
+				// PC版 各番号の画像
+				@include desktop {
+					.howto_num1 {
+						@include backgroundFig(235px, 30px, "howto_num1.png");
+					}
+					.howto_num2 {
+						@include backgroundFig(235px, 30px, "howto_num2.png");
+					}
+					.howto_num3 {
+						@include backgroundFig(235px, 30px, "howto_num3.png");
+					}
+					.howto_num4 {
+						@include backgroundFig(235px, 30px, "howto_num4.png");
+					}
+				}
+				// SP版 各番号の画像
+				@include smartphone {
+					.howto_num1 {
+						@include backgroundFigSP(percentage(42 / 670), percentage(433 / 670), "howto_num1_sp.png");
+					}
+					.howto_num2 {
+						@include backgroundFigSP(percentage(42 / 670), percentage(482 / 670), "howto_num2_sp.png");
+					}
+					.howto_num3 {
+						@include backgroundFigSP(percentage(42 / 670), percentage(293 / 670), "howto_num3_sp.png");
+					}
+					.howto_num4 {
+						@include backgroundFigSP(percentage(42 / 670), percentage(293 / 670), "howto_num4_sp.png");
+					}
+				}
+				// 最後の説明部分の下線を非表示
+				&:last-child .howto_inner {
+					@include smartphone {
+						padding-bottom: 0;
+						border-bottom: none;
+					}
+				}
+				// 説明部分
+				.howto_inner {
+					position: relative;
+					@include desktop {
 						width: 198px;
 						margin: 0 auto;
 					}
+					@include smartphone {
+						float: left;
+						width: percentage(606 / 670);
+						padding: percentage(15 / 606) 0 percentage(30 / 606);
+						border-bottom: 1px solid rgba(0, 145, 58, 0.6);
+					}
+					// レシピ写真の共通のCSS
 					.howto_photo {
-						text-align: center;
 						@include desktop {
 							margin: 50px 0 36px;
+							text-align: center;
+						}
+						@include smartphone {
+							float: left;
+							width: percentage(261 / 606);
+							margin-right: percentage(25 / 606);
+							> img {
+								width: 100%;
+								height: auto;
+							}
+						}
+					}
+					// レシピ各写真のCSS
+					.howto_photo1 {
+						@include smartphone {
+							margin-bottom: percentage(24 / 606);
+						}
+					}
+					.howto_photo2 {
+						@include smartphone {
+							margin-bottom: percentage(86 / 606);
 						}
 					}
 					.howto_notice2 {
+						position: absolute;
 						@include desktop {
-							position: absolute;
 							top: 144px;
 							left: 5px;
 							@include backgroundFig(188px, 53px, "howto2_notice.png");
 						}
+						@include smartphone {
+							top: 0;
+							margin-top: percentage(300 / 606);
+							@include backgroundFigSP(percentage(606 / 606), percentage(44 / 606), "howto2_notice_sp.png");
+						}
 					}
 					.howto_notice3 {
+						position: absolute;
 						@include desktop {
-							position: absolute;
 							top: 113px;
 							right: 0;
 							@include backgroundFig(118px, 89px, "howto3_notice.png");
 						}
+						@include smartphone {
+							top: 0;
+							left: 0;
+							margin-top: percentage(163 / 606);
+							margin-left: percentage(176 / 606);
+							@include backgroundFigSP(percentage(139 / 606), percentage(114 / 606), "howto3_notice_sp.png");
+						}
 					}
+					// レシピ説明文の共通のCSS
 					[class*=howto_desc] {
 						@include desktop {
 							font-size: 16px;
 							line-height: 1.5em;
 						}
-					}
-					.howto_desc1 {
-						@include desktop {
-							margin-bottom: 64px;
+						@include smartphone {
+							font-size: 3.73vw;
+							line-height: 1.42em;
 						}
 					}
-					.howto_desc2 {
-						@include desktop {
+					// PC版 レシピ各説明文のCSS
+					@include desktop {
+						.howto_desc1 {
+							margin-bottom: 64px;
+						}
+						.howto_desc2 {
 							margin-bottom: 15px;
 						}
 					}
+					// SP版 レシピ各説明文のCSS
+					@include smartphone {
+						.howto_desc1 {
+							margin-top: percentage(90 / 606);
+						}
+						.howto_desc2 {
+							margin-top: percentage(52 / 606);
+						}
+						.howto_desc3 {
+							margin-top: percentage(33 / 606);
+						}
+						.howto_desc4 {
+							margin-top: percentage(70 / 606);
+						}
+					}
 					.howto_point {
+						@include smartphone {
+							clear: both;
+						}
 						.howto_point_ttl {
 							font-weight: bold;
 							@include desktop {
 								margin-bottom: 12px;
 								padding-left: 39px;
-								background: url(#{$imgPath}howto_point_ttl_icon.png) no-repeat left top;
+								background: url(#{$imgPath}howto_point_ttl_icon.png) no-repeat left center;
 								background-size: 32px 19px;
 								font-size: 13px;
 								line-height: 1.5em;
+							}
+							@include smartphone {
+								margin-bottom: percentage(14 / 606);
+								padding-left: percentage(62 / 606);
+								background: url(#{$imgPath}howto_point_ttl_icon.png) no-repeat left center;
+								background-size: contain;
+								font-size: 3.46vw;
+								line-height: 1.1em;
 							}
 						}
 						.howto_point_desc {
@@ -658,12 +801,24 @@ header {
 								font-size: 14px;
 								line-height: 1.5em;
 							}
+							@include smartphone {
+								font-size: 2.93vw;
+								line-height: 1.45em;
+							}
+						}
+						.howto_point_desc1 {
+							@include smartphone {
+								margin-bottom: percentage(19 / 606);
+							}
 						}
 						.howto_point_notes {
 							color: $red;
 							@include desktop {
 								font-size: 12px;
 								line-height: 1.5em;
+							}
+							@include smartphone {
+								font-size: 2.93vw;
 							}
 						}
 					}
@@ -677,16 +832,27 @@ header {
 				font-size: 12px;
 				line-height: 1.5em;
 			}
+			@include smartphone {
+				margin-bottom: percentage(33 / 670);
+				font-size: 2.93vw;
+				line-height: 1.54em;
+			}
 		}
 		.howto_point_wrap {
-			display: flex;
-			justify-content: space-between;
+			@include desktop {
+				display: flex;
+				justify-content: space-between;
+			}
 			// 共通CSS
 			[class*=point_sub_ttl] {
 				color: #fff;
 				text-align: center;
 				@include desktop {
 					padding: 10px;
+				}
+				@include smartphone {
+					font-size: 4.53vw;
+					line-height: 1.8em;
 				}
 			}
 			// 4人前を作るポイントのみのCSS
@@ -695,6 +861,10 @@ header {
 					width: 490px;
 					border: 2px solid $red;
 					box-sizing: border-box;
+				}
+				@include smartphone {
+					margin-bottom: percentage(40 / 670);
+					border: 2px solid $red;
 				}
 				.point_sub_ttl_four {
 					background-color: $red;
@@ -708,6 +878,12 @@ header {
 						font-size: 14px;
 						line-height: 1.57em;
 					}
+					@include smartphone {
+						padding: percentage(13 / 605) percentage(28 / 605);
+						border-bottom: 2px solid $red;
+						font-size: 3.46vw;
+						line-height: 1.46em;
+					}
 				}
 				[class*=howto_point_desc] {
 					@include desktop {
@@ -715,7 +891,20 @@ header {
 						font-size: 12px;
 						line-height: 1.5em;
 					}
+					@include smartphone {
+						font-size: 3.2vw;
+						line-height: 1.416em;
+					}
 				}
+				// 4人前を作るポイントの共通のCSS
+				.howto_four_inner {
+					@include smartphone {
+						width: percentage(625 / 670);
+						margin: 0 auto;
+						padding: percentage(18 / 750) 0;
+					}
+				}
+				// 鍋のCSS
 				.howto_four_pot {
 					@include clearfix;
 					background: url(#{$imgPath}howto_four_pot_line.gif) repeat-x left bottom;
@@ -730,6 +919,22 @@ header {
 						@include desktop {
 							margin-right: 14px;
 						}
+						@include smartphone {
+							width: percentage(92 / 620);
+							margin-right: percentage(15 / 620);
+							padding: percentage(16 / 620) 0;
+							> img {
+								width: 100%;
+								height: auto;
+							}
+						}
+					}
+					.howto_point_desc_pot {
+						@include smartphone {
+							float: left;
+							width: percentage(510 / 620);
+							margin-bottom: percentage(8 / 620);
+						}
 					}
 					.pot_notice {
 						color: $red;
@@ -737,8 +942,13 @@ header {
 							padding-top: 3px;
 							font-size: 12px;
 						}
+						@include smartphone {
+							width: percentage(636 / 620);
+							font-size: 2.8vw;
+						}
 					}
 				}
+				// 水のCSS
 				.howto_four_water {
 					@include desktop {
 						width: 452px;
@@ -749,6 +959,15 @@ header {
 						float: left;
 						@include desktop {
 							margin: 4px 25px 0 9px;
+						}
+						@include smartphone {
+							width: percentage(59 / 620);
+							margin: 0 percentage(30 / 620) 0 percentage(15 / 620);
+							padding-top: percentage(6 / 620);
+							> img {
+								width: 100%;
+								height: auto;
+							}
 						}
 					}
 					.howto_point_desc_water {
@@ -765,10 +984,11 @@ header {
 					border: 2px solid $green;
 					box-sizing: border-box;
 				}
+				@include smartphone {
+					border: 2px solid $green;
+				}
 				.point_sub_ttl_fast {
-					@include desktop {
-						background-color: $green;
-					}
+					background-color: $green;
 				}
 				// 共通CSS
 				[class*=howto_fast_inner] {
@@ -778,20 +998,34 @@ header {
 					@include desktop {
 						width: 453px;
 					}
+					@include smartphone {
+						align-items: center;
+						width: percentage(620 / 670);
+						padding: percentage(20 / 620) 0;
+					}
 				}
 				.fast_desc {
 					@include desktop {
 						font-size: 16px;
+					}
+					@include smartphone {
+						font-size: 3.46vw;
 					}
 					.red_txt {
 						color: $red;
 						@include desktop {
 							font-size: 20px;
 						}
+						@include smartphone {
+							font-size: 4.26vw;
+						}
 					}
 					.red_txt_small {
 						@include desktop {
 							font-size: 16px;
+						}
+						@include smartphone {
+							font-size: 3.46vw;
 						}
 					}
 				}
@@ -809,6 +1043,10 @@ header {
 							margin: 14px 20px 14px 0;
 							@include backgroundFig(107px, 68px, "fast_three_icon.png");
 						}
+						@include smartphone {
+							margin-right: percentage(18 / 620);
+							@include backgroundFigSP(percentage(150 / 620), percentage(102 / 620), "fast_three_icon_sp.png");
+						}
 					}
 				}
 				// 早ゆで6分タイプのみのCSS
@@ -818,19 +1056,29 @@ header {
 							margin: 14px 20px 13px 0;
 							@include backgroundFig(107px, 68px, "fast_six_icon.png");
 						}
+						@include smartphone {
+							margin-right: percentage(18 / 620);
+							@include backgroundFigSP(percentage(150 / 620), percentage(102 / 620), "fast_six_icon_sp.png");
+						}
 					}
 				}
 			}
 		}
 	}
 	.howto_bg_obj {
+		top: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
 		@include desktop {
 			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
 			height: 1360px;
-			overflow: hidden;
+		}
+		@include smartphone {
+			position: relative;
+			top: 0;
+			margin: percentage(-2328 / 750) 0 percentage(1374 / 750);
+			z-index: 1;
 		}
 		// 共通CSS
 		[class*=howto_bg_obj] {
@@ -845,6 +1093,9 @@ header {
 				top: 486px;
 				margin-left: 520px;
 				@include backgroundFig(116px, 120px, "howto_bg_obj1.png");
+			}
+			@include smartphone {
+				@include backgroundFigSP(percentage(750 / 750), percentage(1039 / 750), "howto_bg_obj_sp.png");
 			}
 		}
 		.howto_bg_obj2 {

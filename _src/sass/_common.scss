@@ -241,17 +241,24 @@ header {
 	}
 	@include smartphone {
 		padding-top: 60px;
+		background: url(#{$imgPath}mv_bg1_sp.png) no-repeat center 60px;
 	}
 	.mv_contents {
-		@extend %ext_base_block;
+		@extend %ext_base_block_pc;
 		position: relative;
 		@include desktop {
 			margin: 0 auto;
+		}
+		@include smartphone {
+			margin-bottom: percentage(60 / 750);
 		}
 		.mv_copy {
 			@include desktop {
 				margin-left: -50px;
 				@include backgroundFig(795px, 352px, "mv_copy.png");
+			}
+			@include smartphone {
+				@include backgroundFigSP(percentage(750 / 750), percentage(281 / 750), "mv_copy_sp.png");
 			}
 		}
 		.mv_tag {
@@ -261,11 +268,27 @@ header {
 				top: 368px;
 				left: 56px;
 			}
+			@include smartphone {
+				width: 162px;
+				padding: percentage(134 / 750) 0 0 percentage(30 / 750);
+				> img {
+					width: 100%;
+					height: auto;
+				}
+			}
 		}
 		h1 {
 			text-align: center;
 			@include desktop {
 				margin: 154px 0 32px 9px;
+			}
+			@include smartphone {
+				width: 398px;
+				margin: percentage(219 / 750) 0 percentage(28 / 750) percentage(193 / 750);
+				> img {
+					width: 100%;
+					height: auto;
+				}
 			}
 		}
 		.mv_pkg {
@@ -275,15 +298,30 @@ header {
 			@include desktop {
 				width: 642px;
 			}
+			@include smartphone {
+				width: percentage(606 / 750);
+				> li {
+					width: percentage(174 / 606);
+					> img {
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
 		}
 	}
 	.mv_bg_obj_wrap {
-		position: relative;
-		// 共通CSS
-		[class*=mv_bg_obj] {
-			position: absolute;
-			left: 0;
-			width: 100%;
+		@include desktop {
+			position: relative;
+			// 共通CSS
+			[class*=mv_bg_obj] {
+				position: absolute;
+				left: 0;
+				width: 100%;
+			}
+		}
+		@include smartphone {
+			display: none;
 		}
 		// 背景の各野菜のごとのCSS
 		.mv_bg_obj1 {

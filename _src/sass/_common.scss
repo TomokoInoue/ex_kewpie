@@ -1894,7 +1894,7 @@ nav {
 						margin: 24px 0;
 					}
 					@include smartphone {
-						margin-bottom: percentage(38 / 670);
+						margin-bottom: percentage(31 / 670);
 						font-size: 4.533vw;
 					}
 				}
@@ -2057,10 +2057,18 @@ footer {
 			margin: 0 auto;
 		}
 		@include smartphone {
-			padding-bottom: percentage(64 / 750);
+			padding-bottom: percentage(53 / 750);
 		}
 		.footer_logo {
 			text-align: center;
+			@include smartphone {
+				width: percentage(446 / 670);
+				margin: 0 auto percentage(29 / 670);
+				> img {
+					width: 100%;
+					height: auto;
+				}
+			}
 		}
 		.footer_copyright {
 			color: #7e7e7e;
@@ -2070,13 +2078,7 @@ footer {
 				padding-left: 124px;
 			}
 			@include smartphone {
-				width: 100%;
-				font-size: 8px;
-			}
-		}
-		.subsmall {
-			@include desktop {
-				font-size: 13px;
+				font-size: 2.933vw;
 			}
 		}
 	}

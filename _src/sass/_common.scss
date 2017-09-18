@@ -1044,7 +1044,7 @@ nav {
 							@include backgroundFig(107px, 68px, "fast_three_icon.png");
 						}
 						@include smartphone {
-							margin-right: percentage(18 / 620);
+							margin: 0 percentage(18 / 620) 0 percentage(6 / 620);
 							@include backgroundFigSP(percentage(150 / 620), percentage(102 / 620), "fast_three_icon_sp.png");
 						}
 					}
@@ -1057,7 +1057,7 @@ nav {
 							@include backgroundFig(107px, 68px, "fast_six_icon.png");
 						}
 						@include smartphone {
-							margin-right: percentage(18 / 620);
+							margin: 0 percentage(18 / 620) 0 percentage(6 / 620);
 							@include backgroundFigSP(percentage(150 / 620), percentage(102 / 620), "fast_six_icon_sp.png");
 						}
 					}
@@ -1074,11 +1074,6 @@ nav {
 			position: absolute;
 			height: 1360px;
 		}
-		@include smartphone {
-			position: absolute;
-			top: 0;
-			z-index: 1;
-		}
 		// 共通CSS
 		[class*=howto_bg_obj] {
 			@include desktop {
@@ -1094,8 +1089,8 @@ nav {
 				@include backgroundFig(116px, 120px, "howto_bg_obj1.png");
 			}
 			@include smartphone {
-				margin-top: percentage(840 / 750);
-				@include backgroundFigSP(percentage(750 / 750), percentage(2847 / 750), "howto_bg_obj1_sp.png");
+				margin: percentage(21 / 750) 0 0 percentage(113 / 750);
+				@include backgroundFigSP(percentage(591 / 750), percentage(495 / 750), "howto_bg_obj2_sp.png");
 				background-position: center top;
 			}
 		}
@@ -1132,26 +1127,48 @@ nav {
 	@include desktop {
 		top: -153px;
 	}
+	@include smartphone {
+		top: 0;
+		margin-top: percentage(-335 / 750);
+	}
+	// 共通CSS
+	&:before,
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 100%;
+	}
+	// 上部の波背景
 	&:before {
-	@include desktop {
-			content: "";
-			display: block;
-			position: absolute;
+		@include desktop {
 			top: -83px;
-			width: 100%;
 			height: 83px;
 			background: url(#{$imgPath}feature_bg_top.png) repeat-x center top;
 		}
+		@include smartphone {
+			top: 0;
+			height: 0;
+			margin-top: percentage(-91 / 750);
+			padding-bottom: percentage(91 / 750);
+			background: url(#{$imgPath}feature_bg_top_sp.png) no-repeat center top;
+			background-size: contain;
+		}
 	}
+	// 下部の波背景
 	&:after {
 		@include desktop {
-			content: "";
-			display: block;
-			position: absolute;
 			bottom: -83px;
-			width: 100%;
 			height: 83px;
 			background: url(#{$imgPath}feature_bg_bottom.png) repeat-x center top;
+		}
+		@include smartphone {
+			bottom: 0;
+			height: 0;
+			margin-bottom: percentage(-91 / 750);
+			padding-bottom: percentage(91 / 750);
+			background: url(#{$imgPath}feature_bg_bottom_sp.png) no-repeat center top;
+			background-size: contain;
 		}
 	}
 	.feature_contents {
@@ -1159,46 +1176,83 @@ nav {
 		@include desktop {
 			padding: 42px 0 7px;
 		}
+		@include smartphone {
+			padding: percentage(48 / 750) 0 percentage(10 / 750);
+		}
 		.feature_ttl {
 			text-align: center;
 			@include desktop {
 				margin-bottom: 26px;
 			}
+			@include smartphone {
+				width: percentage(620 / 670);
+				margin: 0 auto percentage(40 / 670);
+				> img {
+					width: 100%;
+					height: auto;
+				}
+			}
 		}
 		.feature_lead {
-			text-align: center;
-				@include desktop {
+			@include desktop {
 				margin-bottom: 40px;
 				font-size: 18px;
 				line-height: 1.55em;
+				text-align: center;
+			}
+			@include smartphone {
+				margin-bottom: percentage(40 / 670);
+				font-size: 4.26vw;
+				line-height: 1.375em;
 			}
 		}
 		.feature_list {
-			display: flex;
-			justify-content: space-between;
+			@include desktop {
+				display: flex;
+				justify-content: space-between;
+			}
 			li {
 				@include desktop {
 					width: 316px;
 				}
-				.feature_num1 {
-					@include desktop {
+				// 各番号の共通のCSS
+				[class*=feature_num] {
+					@include smartphone {
+						margin-bottom: percentage(34 / 670);
+					}
+				}
+				// PC版 各番号の画像
+				@include desktop {
+					.feature_num1 {
 						@include backgroundFig(316px, 40px, "feature_num1.png");
 					}
-				}
-				.feature_num2 {
-					@include desktop {
+					.feature_num2 {
 						@include backgroundFig(316px, 40px, "feature_num2.png");
 					}
-				}
-				.feature_num3 {
-					@include desktop {
+					.feature_num3 {
 						@include backgroundFig(316px, 40px, "feature_num3.png");
+					}
+				}
+				// SP版 各番号の画像
+				@include smartphone {
+					.feature_num1 {
+						@include backgroundFigSP(percentage(670 / 670), percentage(64 / 670), "feature_num1_sp.png");
+					}
+					.feature_num2 {
+						@include backgroundFigSP(percentage(670 / 670), percentage(64 / 670), "feature_num2_sp.png");
+					}
+					.feature_num3 {
+						@include backgroundFigSP(percentage(670 / 670), percentage(64 / 670), "feature_num3_sp.png");
 					}
 				}
 				.feature_inner {
 					margin: 0 auto;
 					@include desktop {
 						width: 276px;
+					}
+					@include smartphone {
+						width: percentage(606 / 670);
+						margin: 0 auto percentage(41 / 670);
 					}
 					// 共通のCSS
 					[class*=feature_sub_ttl] {
@@ -1207,6 +1261,12 @@ nav {
 							margin: 22px 0 11px;
 							font-size: 22px;
 							line-height: 1.54em;
+						}
+						@include smartphone {
+							margin-bottom: percentage(30 / 670);
+							font-size: 4.8vw;
+							font-weight: bold;
+							line-height: 1.33em;
 						}
 					}
 					// 各要素ごとのCSS
@@ -1221,12 +1281,21 @@ nav {
 							font-size: 16px;
 							line-height: 1.75em;
 						}
+						@include smartphone {
+							font-size: 3.73vw;
+							line-height: 1.428em;
+						}
 					}
 					.feature_notes {
 						color: $red;
 						@include desktop {
 							font-size: 14px;
 							line-height: 1.57em;
+						}
+						@include smartphone {
+							margin-top: percentage(11 / 606);
+							font-size: 2.933vw;
+							line-height: 1.545em;
 						}
 					}
 				}

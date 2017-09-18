@@ -1313,21 +1313,30 @@ nav {
 		position: relative;
 		top: -153px;
 		margin-bottom: 100px;
+		padding-top: 152px;
+	}
+	@include smartphone {
+		margin: percentage(138 / 750) 0 percentage(100 / 750);
 	}
 	// 背景の野菜
 	.recipe_bg_obj {
-		position: absolute;
-		top: -114px;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
+		@include desktop {
+			position: absolute;
+			top: 40px;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
 		// 共通CSS
 		[class*=recipe_bg_obj] {
 			@include desktop {
 				position: absolute;
 				top: 0;
 				left: 50%;
+			}
+			@include smartphone {
+				display: none;
 			}
 		}
 		// PC版 各野菜のCSS
@@ -1359,15 +1368,24 @@ nav {
 		position: relative;
 		z-index: 14;
 		.recipe_ttl {
-			margin: 153px auto 30px;
 			@include desktop {
+				margin: 0 auto 30px;
 				@include backgroundFig(371px, 111px, "recipe_ttl.png");
+			}
+			@include smartphone {
+				margin: 0 auto percentage(40 / 670);
+				@include backgroundFigSP(percentage(423 / 670), percentage(154 / 670), "recipe_ttl_sp.png");
 			}
 		}
 		.recipe_lead {
-			text-align: center;
 			@include desktop {
 				margin-bottom: 44px;
+				text-align: center;
+			}
+			@include smartphone {
+				margin-bottom: percentage(40 / 670);
+				font-size: 4.266vw;
+				line-height: 1.375em;
 			}
 		}
 		.recipe_pkg {
@@ -1378,7 +1396,14 @@ nav {
 				width: 578px;
 				margin-bottom: 20px;
 			}
+			@include smartphone {
+				width: percentage(631 / 670);
+				margin-bottom: percentage(32 / 670);
+			}
 			li {
+				@include smartphone {
+					width: percentage(200 / 631);
+				}
 				a {
 					display: block;
 				}
@@ -1387,8 +1412,49 @@ nav {
 				.recipe_pkg_arrow {
 					text-align: center;
 				}
+				.recipe_pkg_img {
+					@include smartphone {
+						width: percentage(174 / 200);
+						margin: 0 auto percentage(18 / 200);
+						> img {
+							width: 100%;
+							height: auto;
+						}
+					}
+				}
 				.recipe_pkg_ttl {
-					margin: 14px 0 15px;
+					@include desktop {
+						margin: 14px 0 15px;
+					}
+					@include smartphone {
+						margin: 0 auto percentage(16 / 200);
+						> img {
+							width: 100%;
+							height: auto;
+						}
+					}
+				}
+				.recipe_pkg_arrow {
+					@include smartphone {
+						width: percentage(42 / 200);
+						margin: 0 auto;
+						> img {
+							width: 100%;
+							height: auto;
+						}
+					}
+				}
+				// SP版 各PKG名の画像
+				@include smartphone {
+					.pkg_ttl_cream {
+						width: percentage(202 / 200);
+					}
+					.pkg_ttl_dashi {
+						width: percentage(129 / 200);
+					}
+					.pkg_ttl_tomato {
+						width: percentage(158 / 200);
+					}
 				}
 			}
 		}
@@ -1397,31 +1463,37 @@ nav {
 				@include desktop {
 					margin-bottom: 20px;
 				}
+				@include smartphone {
+					margin-bottom: percentage(32 / 670);
+				}
 			}
 			.recipe_list {
-				position: relative;
-				display: flex;
-				justify-content: space-between;
+				@include clearfix;
 				@include desktop {
+					position: relative;
+					display: flex;
+					justify-content: space-between;
 					padding-bottom: 20px;
 				}
+				@include smartphone {
+					padding-bottom: percentage(32 / 670);
+				}
 				&.recipe_list_cream {
-					@include desktop {
-						border-bottom: 4px solid $orange;
-					}
+					border-bottom: 4px solid $orange;
 				}
 				&.recipe_list_dashi {
-					@include desktop {
-						border-bottom: 4px solid $green;
-					}
+					border-bottom: 4px solid $green;
 				}
 				&.recipe_list_tomato {
-					@include desktop {
-						border-bottom: 4px solid $red;
-					}
+					border-bottom: 4px solid $red;
 				}
 				li {
 					@include clearfix;
+					@include smartphone {
+						position: relative;
+						float: left;
+						width: percentage(312 / 670);
+					}
 					&:after {
 						@include desktop {
 							position: absolute;
@@ -1433,9 +1505,44 @@ nav {
 							background: url(#{$imgPath}recipe_list_line.gif) repeat-y center top;
 						}
 					}
-					&:nth-child(2):after {
-						@include desktop {
-							left: 737px;
+					&:nth-child(even) {
+						@include smartphone {
+							padding-right: percentage(22 / 670);
+						}
+						&:after {
+							@include desktop {
+								left: 737px;
+							}
+							@include smartphone {
+								position: absolute;
+								top: 0;
+								right: 0;
+								width: percentage(2 / 336);
+								height: 0;
+								padding-bottom: percentage(432 / 336);
+								background: url(#{$imgPath}recipe_list_line_length_sp.gif) repeat-y center top;
+								background-size: contain;
+							}
+						}
+					}
+					&:nth-child(odd) {
+						@include smartphone {
+							padding-left: percentage(22 / 670);
+						}
+					}
+					&:first-child {
+						@include smartphone {
+							width: 100%;
+							margin-bottom: percentage(32 / 670);
+							padding-left: 0;
+						}
+						&:after {
+							@include smartphone {
+								height: 0;
+								padding-bottom: percentage(2 / 670);
+								background: url(#{$imgPath}recipe_list_line_sp.gif) repeat-x left top;
+								background-size: contain;
+							}
 						}
 					}
 					// メインレシピ共通のCSS
@@ -1443,12 +1550,30 @@ nav {
 						@include desktop {
 							margin-bottom: 10px;
 						}
+						@include smartphone {
+							margin-bottom: percentage(32 / 670);
+						}
 					}
 					.recipe_wrap {
-						float: left;
+						@include clearfix;
+						@include desktop {
+							float: left;
+						}
+						@include smartphone {
+							margin-bottom: percentage(40 / 670);
+						}
 						.recipe_main_pkg {
 							@include desktop {
 								display: none;
+							}
+							@include smartphone {
+								float: left;
+								width: percentage(134 / 670);
+								margin-right: percentage(37 / 670);
+								> img {
+									width: 100%;
+									height: auto;
+								}
 							}
 						}
 						.recipe_main_ttl {
@@ -1457,10 +1582,19 @@ nav {
 								font-size: 18px;
 								line-height: 1.44em;
 							}
+							@include smartphone {
+								margin-bottom: percentage(40 / 670);
+								padding-top: percentage(7 / 670);
+								font-size: 4.266vw;
+								line-height: 1.375em;
+							}
 						}
 						.recipe_main_time {
 							@include desktop {
 								font-size: 16px;
+							}
+							@include smartphone {
+								font-size: 3.466vw;
 							}
 						}
 					}
@@ -1473,6 +1607,9 @@ nav {
 							margin-top: 4px;
 							overflow: hidden;
 						}
+						@include smartphone {
+							padding-bottom: percentage(40 / 670);
+						}
 						& > a {
 							@include desktop {
 								background-position: 0 0;
@@ -1480,9 +1617,12 @@ nav {
 									background-position: 0 -70px;
 								}
 							}
+							@include smartphone {
+								margin: 0 auto;
+							}
 						}
 					}
-					// メインレシピ各画像のCSS
+					// PC版 メインレシピの各ボタン画像のCSS
 					@include desktop {
 						.recipe_main_btn_cream {
 							& > a {
@@ -1500,6 +1640,24 @@ nav {
 							}
 						}
 					}
+					// SP版 メインレシピの各ボタン画像のCSS
+					@include smartphone {
+						.recipe_main_btn_cream {
+							& > a {
+								@include backgroundFigSP(percentage(606 / 670), percentage(100 / 670), "recipe_main_btn_cream_sp.png");
+							}
+						}
+						.recipe_main_btn_dashi {
+							& > a {
+								@include backgroundFigSP(percentage(606 / 670), percentage(100 / 670), "recipe_main_btn_dashi_sp.png");
+							}
+						}
+						.recipe_main_btn_tomato {
+							& > a {
+								@include backgroundFigSP(percentage(606 / 670), percentage(100 / 670), "recipe_main_btn_tomato_sp.png");
+							}
+						}
+					}
 					// サブレシピ共通のCSS
 					.recipe_sub_img {
 						@include desktop {
@@ -1512,6 +1670,11 @@ nav {
 							margin-bottom: 29px;
 							font-size: 18px;
 							line-height: 1.44em;
+						}
+						@include smartphone {
+							margin: percentage(26 / 312) 0;
+							font-size: 3.2vw;
+							line-height: 1.5em;
 						}
 					}
 					[class*=recipe_sub_btn] {
@@ -1532,7 +1695,7 @@ nav {
 							}
 						}
 					}
-					// サブレシピ各画像ごとのCSS
+					// PC版 サブレシピ各ボタン画像ごとのCSS
 					@include desktop {
 						.recipe_sub_btn_cream {
 							& > a {
@@ -1550,20 +1713,47 @@ nav {
 							}
 						}
 					}
+					// SP版 サブレシピ各ボタン画像ごとのCSS
+					@include smartphone {
+						.recipe_sub_btn_cream {
+							& > a {
+								@include backgroundFigSP(percentage(312 / 312), percentage(80 / 312), "recipe_sub_btn_cream_sp.png");
+							}
+						}
+						.recipe_sub_btn_dashi {
+							& > a {
+								@include backgroundFigSP(percentage(312 / 312), percentage(80 / 312), "recipe_sub_btn_dashi_sp.png");
+							}
+						}
+						.recipe_sub_btn_tomato {
+							& > a {
+								@include backgroundFigSP(percentage(312 / 312), percentage(80 / 312), "recipe_sub_btn_tomato_sp.png");
+							}
+						}
+					}
 					// なめらかクリーム味のレシピ
 					.recipe_main_img_cream {
 						@include desktop {
 							@include backgroundFig(450px, 364px, "recipe_cream_broccoli.png");
+						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(670 / 670), percentage(532 / 670), "recipe_cream_broccoli_sp.png");
 						}
 					}
 					.recipe_cream_walnut {
 						@include desktop {
 							@include backgroundFig(250px, 198px, "recipe_cream_walnut.png");
 						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(312 / 312), percentage(226 / 312), "recipe_cream_walnut_sp.png");
+						}
 					}
 					.recipe_cream_soup {
 						@include desktop {
 							@include backgroundFig(250px, 198px, "recipe_cream_soup.png");
+						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(312 / 312), percentage(226 / 312), "recipe_cream_soup_sp.png");
 						}
 					}
 					// だし醤油味のレシピ
@@ -1571,17 +1761,26 @@ nav {
 						@include desktop {
 							@include backgroundFig(450px, 364px, "recipe_dashi_spinach.png");
 						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(670 / 670), percentage(532 / 670), "recipe_dashi_spinach_sp.png");
+						}
 					}
 					.recipe_dashi_radish {
 						@include desktop {
 							margin-bottom: 45px;
 							@include backgroundFig(250px, 198px, "recipe_dashi_radish.png");
 						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(312 / 312), percentage(226 / 312), "recipe_dashi_radish_sp.png");
+						}
 					}
 					.recipe_dashi_soup {
 						@include desktop {
 							margin-bottom: 45px;
 							@include backgroundFig(250px, 198px, "recipe_dashi_soup.png");
+						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(312 / 312), percentage(226 / 312), "recipe_dashi_soup_sp.png");
 						}
 					}
 					.recipe_sub_ttl_dashi,
@@ -1595,17 +1794,26 @@ nav {
 						@include desktop {
 							@include backgroundFig(450px, 364px, "recipe_tomato_bacon.png");
 						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(670 / 670), percentage(532 / 670), "recipe_tomato_bacon_sp.png");
+						}
 					}
 					.recipe_tomato_pork {
 						@include desktop {
 							margin-bottom: 45px;
 							@include backgroundFig(250px, 198px, "recipe_tomato_pork.png");
 						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(312 / 312), percentage(226 / 312), "recipe_tomato_pork_sp.png");
+						}
 					}
 					.recipe_tomato_soup {
 						@include desktop {
 							margin-bottom: 45px;
 							@include backgroundFig(250px, 198px, "recipe_tomato_soup.png");
+						}
+						@include smartphone {
+							@include backgroundFigSP(percentage(312 / 312), percentage(226 / 312), "recipe_tomato_soup_sp.png");
 						}
 					}
 				}

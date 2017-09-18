@@ -551,8 +551,8 @@ nav {
  * 基本の作り方
  * ------------ */
 .howto_area {
+	position: relative;
 	@include desktop {
-		position: relative;
 		top: -153px;
 	}
 	.howto_contents {
@@ -1075,9 +1075,8 @@ nav {
 			height: 1360px;
 		}
 		@include smartphone {
-			position: relative;
+			position: absolute;
 			top: 0;
-			margin: percentage(-2328 / 750) 0 percentage(1374 / 750);
 			z-index: 1;
 		}
 		// 共通CSS
@@ -1095,7 +1094,9 @@ nav {
 				@include backgroundFig(116px, 120px, "howto_bg_obj1.png");
 			}
 			@include smartphone {
-				@include backgroundFigSP(percentage(750 / 750), percentage(1039 / 750), "howto_bg_obj_sp.png");
+				margin-top: percentage(840 / 750);
+				@include backgroundFigSP(percentage(750 / 750), percentage(2847 / 750), "howto_bg_obj1_sp.png");
+				background-position: center top;
 			}
 		}
 		.howto_bg_obj2 {
@@ -1104,12 +1105,18 @@ nav {
 				margin-left: -736px;
 				@include backgroundFig(193px, 206px, "howto_bg_obj2.png");
 			}
+			@include smartphone {
+				display: none;
+			}
 		}
 		.howto_bg_obj3 {
 			@include desktop {
 				top: 1159px;
 				margin-left: 25px;
 				@include backgroundFig(568px, 502px, "howto_bg_obj3.png");
+			}
+			@include smartphone {
+				display: none;
 			}
 		}
 	}

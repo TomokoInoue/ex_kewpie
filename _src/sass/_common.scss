@@ -1827,9 +1827,12 @@ nav {
  * 商品紹介
  * ----------- */
 .intro_area {
+	position: relative;
 	@include desktop {
-		position: relative;
 		top: -153px;
+	}
+	@include smartphone {
+		margin-bottom: percentage(170 / 750);
 	}
 	.intro_contents {
 		@extend %ext_base_block;
@@ -1840,11 +1843,24 @@ nav {
 			@include desktop {
 				margin-bottom: 30px;
 			}
+			@include smartphone {
+				width: percentage(273 / 670);
+				margin: 0 auto percentage(42 / 670);
+				> img {
+					width: 100%;
+					height: auto;
+				}
+			}
 		}
 		.intro_lead {
-			text-align: center;
 			@include desktop {
 				margin-bottom: 45px;
+				text-align: center;
+			}
+			@include smartphone {
+				margin-bottom: percentage(46 / 670);
+				font-size: 4.266vw;
+				line-height: 1.375em;
 			}
 		}
 		.intro_product {
@@ -1859,10 +1875,27 @@ nav {
 				@include desktop {
 					width: 294px;
 				}
+				@include smartphone {
+					margin-bottom: percentage(68 / 670);
+				}
+				.intro_product_pkg {
+					@include smartphone {
+						width: percentage(260 / 670);
+						margin: 0 auto percentage(33 / 670);
+						> img {
+							width: 100%;
+							height: auto;
+						}
+					}
+				}
 				.intro_product_name {
+					font-weight: bold;
 					@include desktop {
 						margin: 24px 0;
-						font-weight: bold;
+					}
+					@include smartphone {
+						margin-bottom: percentage(38 / 670);
+						font-size: 4.533vw;
 					}
 				}
 				.intro_product_desc {
@@ -1870,6 +1903,11 @@ nav {
 						margin-bottom: 18px;
 						font-size: 16px;
 						line-height: 1.5em;
+					}
+					@include smartphone {
+						margin-bottom: percentage(26 / 670);
+						font-size: 3.733vw;
+						line-height:  1.428em;
 					}
 				}
 				// ボタン共通のCSS
@@ -1889,9 +1927,12 @@ nav {
 								background-position: 0 -60px;
 							}
 						}
+						@include smartphone {
+							margin: 0 auto;
+						}
 					}
 				}
-				// 各ボタンごとのCSS
+				// PC版 各詳細ボタンのCSS
 				@include desktop {
 					.intro_product_btn_cream {
 						& > a {
@@ -1909,16 +1950,40 @@ nav {
 						}
 					}
 				}
+				// SP版 各詳細ボタンのCSS
+				@include smartphone {
+					.intro_product_btn_cream {
+						& > a {
+							@include backgroundFigSP(percentage(542 / 670), percentage(100 / 670), "intro_product_btn_cream_sp.png");
+						}
+					}
+					.intro_product_btn_dashi {
+						& > a {
+							@include backgroundFigSP(percentage(542 / 670), percentage(100 / 670), "intro_product_btn_dashi_sp.png");
+						}
+					}
+					.intro_product_btn_tomato {
+						& > a {
+							@include backgroundFigSP(percentage(542 / 670), percentage(100 / 670), "intro_product_btn_tomato_sp.png");
+						}
+					}
+				}
 			}
 		}
 	}
 	// 背景の野菜
 	.intro_bg_obj {
+		position: absolute;
 		@include desktop {
-			position: absolute;
 			top: -341px;
 			width: 100%;
 			height: 1065px;
+			overflow: hidden;
+		}
+		@include smartphone {
+			top: 0;
+			left: 0;
+			width: 100%;
 			overflow: hidden;
 		}
 		// 共通のCSS
@@ -1928,7 +1993,7 @@ nav {
 				left: 50%;
 			}
 		}
-		// 背景の各野菜ごとのCSS
+		// PC版 背景の各野菜のCSS
 		@include desktop {
 			.intro_bg_obj1 {
 		        top: 365px;
@@ -1944,6 +2009,20 @@ nav {
 				top: 0;
 				margin-left: 480px;
 				@include backgroundFig(604px, 891px, "intro_bg_obj3.png");
+			}
+		}
+		// SP版 背景の各野菜のCSS
+		@include smartphone {
+			.intro_bg_obj1 {
+				top: 0;
+				margin-top: percentage(403 / 750);
+		        @include backgroundFigSP(percentage(750 / 750), percentage(1838 / 750), "intro_bg_obj1_sp.png");
+		    }
+		    .intro_bg_obj2 {
+		        display: none;
+		    }
+			.intro_bg_obj3 {
+				display: none;
 			}
 		}
 	}
@@ -1978,7 +2057,7 @@ footer {
 			margin: 0 auto;
 		}
 		@include smartphone {
-			padding: 20px 0;
+			padding-bottom: percentage(64 / 750);
 		}
 		.footer_logo {
 			text-align: center;

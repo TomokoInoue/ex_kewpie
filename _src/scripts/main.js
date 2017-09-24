@@ -30,7 +30,6 @@
 
         // スクロールした位置で表示、非表示にする
         $(window).scroll(function() {
-            console.log($(this).scrollTop());
 
             // 取得したスクロールの垂直位置が60より大きかった場合
             if ($(this).scrollTop() > 60) {
@@ -91,5 +90,29 @@
 
             window.open(url, winName, 'left=' + x +', top=' + y + ', width=' + w + ', height=' + h + ', personalbar=0, toolbar=0, scrollbars=1, sizable=1');
         }
+
+        /*--------------------------
+         MVスライドショーの処理
+        --------------------------*/
+        var $slideshow = $('.js-slideshow');
+        var $imgItems = $slideshow.find('li');
+        var slideLen = $imgItems.length;
+        var currentNum = 0;
+        var waitTime = 3000;
+        var animeTime = 1500;
+
+        // 最初の要素以外は非表示にする
+        $imgItems.not(':first-child').hide();
+
+        // 画像を表示
+        var timer = function() {
+            $imgItems.eq(currentNum).css('z-index', 0);
+
+            currentNum = (currentNum + 1) % slideLen;
+
+            $imgItems.eq(currentNum).css('z-index', 1).fadeIn(animeTime);
+        }
+
+        setInterval(timer, waitTime);
     });
 })();

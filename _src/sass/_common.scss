@@ -120,7 +120,7 @@ a:active { // クリックしてから離されるまでの状態
  * --------- */
 header {
 	position: relative;
-	z-index: 15;
+	z-index: 6;
 	@include desktop {
 		background: url(#{$imgPath}header_line.gif) repeat-x center bottom;
 		box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
@@ -252,7 +252,13 @@ header {
 		// JSスライドショー
 		.mv_slide {
 			position: relative;
-			height: 480px;
+			@include desktop {
+				height: 480px;
+			}
+			@include smartphone {
+				height: 0;
+				padding-bottom: percentage(476 / 750);
+			}
 			// スライド画像
 			li {
 				position: absolute;
@@ -301,6 +307,7 @@ header {
 			position: absolute;
 			top: 0;
 			left: 0;
+			z-index: 9;
 			@include desktop {
 				@include backgroundFig(795px, 352px, "mv_copy.png");
 			}
@@ -310,6 +317,7 @@ header {
 		}
 		.mv_tag {
 			position: absolute;
+			z-index: 8;
 			@include desktop {
 				top: 368px;
 				left: 56px;
@@ -411,7 +419,7 @@ header {
 nav {
 	position: fixed;
 	width: 100%;
-	z-index: 16;
+	z-index: 7;
  	@include desktop {
  		display: none;
 		top: 0;
@@ -604,7 +612,7 @@ nav {
 	.howto_contents {
 		@extend %ext_base_block;
 		position: relative;
-		z-index: 3;
+		z-index: 2;
 		@include desktop {
 			margin: 232px auto 213px;
 		}
@@ -1412,7 +1420,7 @@ nav {
 	.recipe_contents {
 		@extend %ext_base_block;
 		position: relative;
-		z-index: 14;
+		z-index: 4;
 		.recipe_ttl {
 			@include desktop {
 				margin: 0 auto 30px;
@@ -1883,7 +1891,7 @@ nav {
 	.intro_contents {
 		@extend %ext_base_block;
 		position: relative;
-		z-index: 10;
+		z-index: 5;
 		.intro_ttl {
 			text-align: center;
 			@include desktop {
@@ -2080,7 +2088,7 @@ nav {
  * ------------------ */
 .page_top_btn {
 	position: fixed;
-	z-index: 4;
+	z-index: 3;
 	@include desktop {
 		right: 48px;
 		bottom: 60px;
